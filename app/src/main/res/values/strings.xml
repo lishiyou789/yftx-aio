@@ -1,0 +1,147 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">医服天下</string>
+
+
+    <array name="home_tabs_array">
+        <item>健康管理</item>
+        <item>门诊检查</item>
+        <item>家医&amp;公卫</item>
+        <item>任务中心</item>
+    </array>
+
+
+    <string name="age">%1$d岁</string>
+    <string name="login">登录</string>
+    <string name="net_error">请检查网络状态</string>
+    <string name="login_hint">请输入账号</string>
+    <string name="input_phone">请输入手机号</string>
+    <string name="pwd_hint">请输入密码</string>
+    <string name="pwd_new_hint">请输入新密码</string>
+    <string name="forget_pwd">忘记密码</string>
+    <string name="cancel">取消</string>
+    <string name="sure">确定</string>
+    <string name="login_out">确定退出程序吗?</string>
+    <string name="login_code">输入手机验证码</string>
+    <string name="account_not_null">账号不能为空</string>
+    <string name="pwd_not_null">密码不能为空</string>
+    <string name="account_pwd_not_null">账号或密码不能为空</string>
+    <string name="login_code_get">点击获取</string>
+    <string name="action_success">操作成功</string>
+    <string name="refresh_success">刷新成功</string>
+    <string name="action_error">操作失败</string>
+    <string name="reset_pwd">立即重置</string>
+    <string name="login_with_account">使用账号登录</string>
+    <string name="click_refresh_code">点击二维码刷新</string>
+    <string name="back">返回</string>
+    <string name="history">历史记录</string>
+    <string name="sign">签</string>
+    <string name="set_current_resident">请设置当前居民！</string>
+    <string name="current_resident">点击头像设置居民</string>
+    <string name="add_resident">新增居民</string>
+    <string name="add">添加</string>
+    <string name="select">选择</string>
+    <string name="search_resident">居民搜索</string>
+    <string name="search">搜索</string>
+    <string name="filter">筛选</string>
+    <string name="all_task">全部任务</string>
+    <string name="extract">待解读/待开方</string>
+    <string name="create_file">待建档</string>
+    <string name="service_him">服务TA</string>
+    <string name="add_resident_title_str">新增居民</string>
+    <string name="add_resident_name_hint">必填，限10个字</string>
+    <string name="add_resident_birthday_hint">选择出生日期</string>
+    <string name="add_resident_idcard_hint">录入身份证或者刷身份证</string>
+    <string name="add_resident_phone_hint">请输入手机号码</string>
+    <string name="add_resident_address_hint">请输入居住地</string>
+    <string name="add_resident_lane_line_hint">区号+固定电话</string>
+    <string name="add_resident_social_number_hint">请输入社保卡号</string>
+    <string name="add_resident_name">姓名:</string>
+    <string name="add_resident_idcard">身份证号码:</string>
+    <string name="add_resident_phone">手机号: </string>
+    <string name="add_resident_lane_line">固 话: </string>
+    <string name="add_resident_social_number">社保卡号: </string>
+
+    <string name="add_resident_next">下一步</string>
+    <string name="add_resident_finish">完成</string>
+    <string name="add_resident_birthday">出生日期:</string>
+    <string name="add_resident_sex">性别:</string>
+    <string name="add_resident_address">居住地:</string>
+    <string name="add_resident_pre">返回上一步</string>
+
+    <string name="start_measure">启动测量</string>
+    <string name="click_measure">点击测量</string>
+    <string name="click_to_input">点击输入</string>
+    <string name="device_connect">设备已连接</string>
+    <string name="device_no_connect">设备未连接</string>
+    <string name="not_ready">未就绪</string>
+    <string name="not_measure">未测量</string>
+    <string name="measureing">正在测量</string>
+    <string name="wait_result">等待结果</string>
+    <string name="stop_measure">停止测量</string>
+    <string name="remeasure">重新测量</string>
+    <string name="measure_success">测量成功</string>
+    <string name="electrocardio">心电</string>
+    <string name="blood_pressure">血压</string>
+    <string name="blood_glucose">血糖</string>
+    <string name="blood_oxygen">血氧</string>
+    <string name="body_temperature">体温</string>
+    <string name="trioxypurine">尿酸</string>
+    <string name="heart_rate">心率</string>
+    <string name="relieve_family_relation">退出家庭</string>
+    <string name="clinic_prescribing">打印报告/开方</string>
+    <string name="save_measure">保存测量</string>
+    <string name="save">保存</string>
+    <string name="click_see">点击查看</string>
+    <string name="click_see_after">设置居民后查看</string>
+    <string name="setting_more">更多设置</string>
+    <string name="resident_relation">关系: </string>
+    <string name="relation">关联</string>
+    <string name="resident_relation_hint">选择关系</string>
+    <string name="resident_age">年龄: </string>
+    <string name="resident_age_hint">请选择出生日期以获取年龄</string>
+    <string name="filter_vcode">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="add_family_resident">添加家人</string>
+    <string name="health_manager">健康管理</string>
+    <string name="service_agreement">服务协议</string>
+    <string name="confirm_unsign_service">确认解约协议</string>
+    <string name="confirm_sign_service">确认签约协议</string>
+    <string name="confirm_service_package">确认服务包</string>
+    <string name="select_cancel">重置所有选择</string>
+    <string name="service_record">履约记录</string>
+    <string name="service_unsign">解约</string>
+    <string name="service_package_detail">服务包详情</string>
+    <string name="reset_setting_tips">设置初始化后软件将恢复默认的配置，请再次确认该操作！</string>
+    <string name="update_tips">系统升级提示</string>
+    <string name="action_tips">操作提示</string>
+    <string name="exit_family_group">确定退出当前家庭？</string>
+    <string name="family_member_exist">该家属已存在平台，关联账号可查看更多家属健康数据！</string>
+    <string name="create_file_tips">建档提示</string>
+    <string name="create_file_tips_content">请先完善居民档案，以尽快完成签约</string>
+    <string name="go_create_file">立即前往</string>
+    <string name="update_success">更新成功</string>
+    <string name="new_version">发现新版本，是否下载更新？</string>
+    <string name="not_remind">不再提醒</string>
+    <string name="update_no">暂不更新</string>
+    <string name="update_now">立即下载</string>
+    <string name="dialog_add_resident_hint">居民扫码，把健康带回家</string>
+    <string name="str_resident_code">居民码: </string>
+    <string name="select_relation_str">选择与%s的关系</string>
+    <string name="health_manger_title">健康管理</string>
+    <string name="recommend_service">推荐服务包</string>
+    <string name="other_service">其他服务包</string>
+    <string name="bind_account">绑定账号</string>
+    <string name="binded">已绑定</string>
+    <string name="unbind">未绑定</string>
+    <string name="please_enter_advise">输入指导意见....</string>
+    <string name="unsign">解约</string>
+    <string name="cant_gat_doctor_info">医生信获取失败</string>
+    <string name="identity_card_error">居民身份证信息异常</string>
+    <string name="resident_not_exist">该居民在平台不存在，请先添加该居民</string>
+    <string name="search_my_resident">搜索我的居民</string>
+    <string name="reboot_aio">软件升级替换安装请重启一体机</string>
+
+    <string name="see_measure_data">查看测量数据</string>
+    <string name="see_ecg_data">查看心电图</string>
+    <string name="no_measure_data">暂无测量数据</string>
+
+</resources>

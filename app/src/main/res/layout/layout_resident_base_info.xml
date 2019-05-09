@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout style="@style/new_resident_layout_item">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="*"
+            android:textColor="@color/red"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            style="@style/new_resident_text_item"
+            android:text="@string/add_resident_name"
+            android:textSize="@dimen/sp_14" />
+
+
+        <EditText
+            android:id="@+id/edit_name"
+            style="@style/new_resident_edit_item"
+            android:hint="@string/add_resident_name_hint"
+            android:maxLength="10"
+            android:textSize="@dimen/sp_14" />
+    </LinearLayout>
+
+    <include layout="@layout/layout_divider_line_gray" />
+
+    <LinearLayout
+        android:id="@+id/layout_relation"
+        style="@style/new_resident_layout_item">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="*"
+            android:textColor="@color/red"
+            android:textSize="@dimen/sp16" />
+        <TextView
+            style="@style/new_resident_text_item"
+            android:text="@string/resident_relation" />
+
+        <EditText
+            android:id="@+id/edit_relation"
+            style="@style/new_resident_edit_item"
+            android:layout_marginStart="@dimen/dp_10"
+            android:background="@drawable/shape_resident_relation_edit_bg"
+            android:drawableEnd="@mipmap/icon_relation_arrow_down"
+            android:editable="false"
+            android:focusable="false"
+            android:hint="@string/resident_relation_hint"
+            android:padding="@dimen/dp_10"
+            android:textSize="@dimen/sp12" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/view_line_relation"
+        layout="@layout/layout_divider_line_gray" />
+
+    <LinearLayout
+        android:id="@+id/layout_resident_code"
+        style="@style/new_resident_layout_item"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/new_resident_text_item"
+            android:text="@string/str_resident_code" />
+
+        <EditText
+            android:id="@+id/edit_resident_code"
+            style="@style/new_resident_edit_item"
+            android:layout_marginStart="@dimen/dp_10"
+            android:editable="false"
+            android:focusable="false"
+            android:padding="@dimen/dp_5" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="end|center_vertical"
+            android:src="@mipmap/icon_default_qr_code" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/view_line_code"
+        layout="@layout/layout_divider_line_gray"
+        android:visibility="gone" />
+
+    <LinearLayout style="@style/new_resident_layout_item">
+
+        <TextView
+            style="@style/new_resident_text_item"
+            android:text="@string/add_resident_idcard" />
+
+        <EditText
+            android:id="@+id/edit_idcard"
+            style="@style/new_resident_edit_item"
+            android:digits="0123456789xX"
+            android:hint="@string/add_resident_idcard_hint"
+            android:maxLength="18"
+            />
+    </LinearLayout>
+
+    <include layout="@layout/layout_divider_line_gray_light" />
+
+    <LinearLayout style="@style/new_resident_layout_item">
+
+        <TextView
+            style="@style/new_resident_text_item"
+            android:text="@string/add_resident_phone" />
+
+        <EditText
+            android:id="@+id/edit_resident_phone"
+            style="@style/new_resident_edit_item"
+            android:hint="绑定为账号可关联用户数据"
+            android:inputType="number"
+            android:maxLength="11"
+           />
+
+        <CheckBox
+            android:id="@+id/cb_bind_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_add_resident_bind_account_bg"
+            android:button="@drawable/selector_add_resident_bind_account"
+            android:gravity="center"
+            android:padding="@dimen/dp_5"
+            android:text="@string/bind_account"
+            android:textSize="@dimen/sp_13" />
+    </LinearLayout>
+
+    <include layout="@layout/layout_divider_line_gray_light" />
+
+    <LinearLayout style="@style/new_resident_layout_item">
+
+        <TextView
+            style="@style/new_resident_text_item"
+            android:text="@string/add_resident_lane_line" />
+
+        <EditText
+            android:id="@+id/edit_lane"
+            style="@style/new_resident_edit_item"
+            android:digits="0123456789-—"
+            android:hint="@string/add_resident_lane_line_hint"
+            android:maxLength="12"
+            />
+    </LinearLayout>
+
+    <include layout="@layout/layout_divider_line_gray_light" />
+</LinearLayout>

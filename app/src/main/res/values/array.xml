@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources tools:ignore="MissingTranslation" xmlns:tools="http://schemas.android.com/tools">
+    <!-- CREATE A COLOR ARRAY IN COLORS XML -->
+    <color name="custom_theme_darker">#008FBB</color>
+    <color name="custom_theme_dark">#008FCC</color>
+    <color name="custom_theme_primary">#3899fa</color>
+    <color name="custom_theme_light">#b4dfff</color>
+
+    <color name="cancel_theme_darker">#63c3ff</color>
+    <color name="cancel_theme_dark">#75deff</color>
+    <color name="cancel_theme_primary">#8cc8da</color>
+    <color name="cancel_theme_light">#e1f9ff</color>
+
+    <color name="hollow_darker">#3899fa</color>
+    <color name="hollow_dark">#3899fa</color>
+    <color name="hollow_primary">#3899fa</color>
+    <color name="hollow_light">#3899fa</color>
+
+    <integer-array name="FlatButton">
+        <item>@color/custom_theme_darker</item> <!-- really much darker color of main color -->
+        <item>@color/custom_theme_dark</item> <!-- a bit darker color of your main color -->
+        <item>@color/custom_theme_primary</item> <!-- main color of your theme -->
+        <item>@color/custom_theme_light</item> <!-- really much lighter color of main color -->
+    </integer-array>
+
+    <integer-array name="FlatCancelButton">
+        <item>@color/cancel_theme_darker</item>
+        <item>@color/cancel_theme_dark</item>
+        <item>@color/cancel_theme_primary</item>
+        <item>@color/cancel_theme_light</item>
+    </integer-array>
+
+    <integer-array name="flat_button_hollow">
+        <item>@color/hollow_darker</item> <!-- really much darker color of main color -->
+        <item>@color/hollow_dark</item> <!-- a bit darker color of your main color -->
+        <item>@color/hollow_primary</item> <!-- main color of your theme -->
+        <item>@color/hollow_light</item> <!-- really much lighter color of main color -->
+    </integer-array>
+
+    <color name="grass_darker">#ad843d</color>
+    <color name="grass_dark">#d4a14a</color>
+    <color name="grass_primary">#fbbf58</color>
+    <color name="grass_light">#fae8c8</color>
+
+    <integer-array name="FlatEditText">
+        <item>@color/grass_darker</item>
+        <item>@color/grass_dark</item>
+        <item>@color/grass_primary</item>
+        <item>@color/grass_light</item>
+    </integer-array>
+
+    <array name="family_relation">
+        <item>父亲</item>
+        <item>母亲</item>
+        <item>配偶</item>
+        <item>子女</item>
+        <item>兄弟</item>
+        <item>姐妹</item>
+        <item>其他</item>
+    </array>
+
+    <array name="array_symptoms">
+        <item>无症状</item>
+        <item>头疼头晕</item>
+        <item>恶心呕吐</item>
+        <item>眼花耳鸣</item>
+        <item>呼吸困难</item>
+        <item>心悸困难</item>
+    </array>
+
+    <array name="array_templates">
+        <item>低脂低钠饮食</item>
+        <item>规律服药</item>
+        <item>戒烟限酒</item>
+        <item>定期随访</item>
+        <item>建议复查</item>
+        <item>健康锻炼</item>
+    </array>
+</resources>

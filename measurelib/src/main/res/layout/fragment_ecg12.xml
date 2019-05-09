@@ -1,0 +1,182 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/ecg_rl"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="8dp">
+
+    <LinearLayout
+        android:id="@+id/hr_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/hr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/ecg_hr"
+                android:textColor="#1cbe5d"
+                android:textSize="20sp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:text="@string/hr_alarm_high"
+                    android:textColor="#666"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:text="@string/hr_alarm_low"
+                    android:textColor="#666"
+                    android:textSize="10sp"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/ecg_hr_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:text="@string/default_value"
+                android:textColor="#666"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:text="bpm"
+                android:textColor="#666"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <!--屏蔽呼吸-->
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:minWidth="80dp"
+                android:text="呼吸:"
+                android:textColor="#FF9933"
+                android:textSize="18sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/ecg_br_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:minWidth="25dp"
+                android:text="-?-"
+                android:textSize="15sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:text="rpm"
+                android:textSize="10sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/ecg_notify"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:textColor="#FF9933"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_ecg_alarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF0000"
+                android:textSize="15sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.konsung.view.DonutProgress
+                android:id="@+id/donut_progress"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                custom:donut_finished_stroke_width="8dp"
+                custom:donut_progress="100"
+                custom:donut_unfinished_stroke_width="8dp"/>
+
+
+            <TextView
+                android:id="@+id/measure_btn"
+                android:layout_width="80dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/ks_btn_bg"
+                android:gravity="center"
+                android:text="@string/nibp_btn_start"
+                android:textColor="#ededed"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/ecg_setting"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/ks_btn_bg"
+                android:gravity="center"
+                android:text="@string/setting"
+                android:textColor="#ffffff"
+                android:textSize="15sp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/list_item_unselected"/>
+
+    <com.konsung.view.EcgViewFor12
+        android:id="@+id/ecg_view"
+        android:layout_width="943.95px"
+        android:layout_height="530.97px"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"/>
+
+
+</LinearLayout>

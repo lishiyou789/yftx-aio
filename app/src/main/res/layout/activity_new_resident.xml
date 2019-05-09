@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_titlebar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dp_20">
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tv_nav_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_add_resident_nav_select"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp13" />
+
+
+            <View
+                android:id="@+id/view_line_one"
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@color/tag_bg_color" />
+
+            <TextView
+                android:id="@+id/tv_nav_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_add_resident_nav_unselect"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp13" />
+
+            <View
+                android:id="@+id/view_line_two"
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@color/blackC" />
+
+            <TextView
+                android:id="@+id/tv_nav_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_add_resident_nav_unselect"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp13" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:text="基础资料"
+                android:textColor="@color/black9"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_2"
+                android:layout_weight="1"
+                android:text="详细资料"
+                android:textColor="@color/black9"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_10"
+                android:text="健康状况"
+                android:textColor="@color/black9"
+                android:textSize="@dimen/sp13" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="500dp"
+            android:layout_height="420dp"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@color/white"
+            android:orientation="vertical">
+            <!--居民基础资料-->
+            <include
+                android:id="@+id/layout_resident_base"
+                layout="@layout/layout_add_resident_base_info" />
+            <!--居民详情资料-->
+            <include
+                android:id="@+id/layout_resident_details"
+                layout="@layout/layout_add_resident_detail_info"
+                android:visibility="gone" />
+            <!--居民健康状况资料-->
+            <include
+                android:id="@+id/layout_resident_health"
+                layout="@layout/layout_add_resident_health_info"
+                android:visibility="gone" />
+
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

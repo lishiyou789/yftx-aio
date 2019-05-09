@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/btn_service_agreement"
+        android:title="@string/service_agreement" />
+    <item
+        android:id="@+id/btn_service_record"
+        android:title="@string/service_record" />
+    <item
+        android:id="@+id/btn_unsign"
+        android:title="@string/unsign" />
+</menu>

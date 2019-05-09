@@ -1,0 +1,2338 @@
+﻿
+package com.caysn.printerlibs.printerlibs_caysnpage;
+
+import android.graphics.Bitmap;
+
+import java.io.ByteArrayOutputStream;
+
+import com.sun.jna.Callback;
+import com.sun.jna.Library;
+import com.sun.jna.Native;
+import com.sun.jna.Platform;
+import com.sun.jna.Pointer;
+import com.sun.jna.WString;
+import com.sun.jna.ptr.*;
+
+public interface printerlibs_caysnpage extends Library {
+
+    // static interface method need jdk1.8. here we use inner class to avoid this porblem.
+    public class GetLibraryPath_Helper {
+        // can replaced by absolute path
+        public static String GetLibraryPath() {
+            // force call JNI_OnLoad
+            if (Platform.isAndroid())
+                System.loadLibrary("PrinterLibs");
+            return "PrinterLibs";
+        }
+    }
+    public static final printerlibs_caysnpage INSTANCE = (printerlibs_caysnpage) Native.loadLibrary(GetLibraryPath_Helper.GetLibraryPath(), printerlibs_caysnpage.class);
+
+
+    public static final int ComDataBits_4 = 4;
+    public static final int ComDataBits_5 = 5;
+    public static final int ComDataBits_6 = 6;
+    public static final int ComDataBits_7 = 7;
+    public static final int ComDataBits_8 = 8;
+
+
+    public static final int ComParity_NoParity = 0;
+    public static final int ComParity_OddParity = 1;
+    public static final int ComParity_EvenParity = 2;
+    public static final int ComParity_MarkParity = 3;
+    public static final int ComParity_SpaceParity = 4;
+
+
+    public static final int ComStopBits_One = 0;
+    public static final int ComStopBits_OnePointFive = 1;
+    public static final int ComStopBits_Two = 2;
+
+
+    public static final int ComFlowControl_None = 0;
+    public static final int ComFlowControl_XonXoff = 1;
+    public static final int ComFlowControl_RtsCts = 2;
+    public static final int ComFlowControl_DtrDsr = 3;
+
+
+    public static final int PL_QUERYBUFFER_EMTPY = 0;
+    public static final int PL_QUERYBUFFER_FAILED_PORT_CLOSED = -1;
+    public static final int PL_QUERYBUFFER_FAILED_PORT_WRITEFAILED = -2;
+    public static final int PL_QUERYBUFFER_FAILED_PORT_READFAILED = -3;
+    public static final int PL_QUERYBUFFER_NOT_EMPTY = -4;
+
+
+    public static final int PL_PRINTRESULT_SUCCESS = 0;
+    public static final int PL_PRINTRESULT_PORT_CLOSED = -1;
+    public static final int PL_PRINTRESULT_PORT_WRITEFAILED = -2;
+    public static final int PL_PRINTRESULT_PORT_READFAILED = -3;
+    public static final int PL_PRINTRESULT_PRINTER_OFFLINE = -102;
+    public static final int PL_PRINTRESULT_PRINTER_NOPAPER = -103;
+    public static final int PL_PRINTRESULT_OTHER_RERROR = -101;
+
+
+    public class PL_PRINTERSTATUS_Helper {
+        public static boolean PL_PRINTERSTATUS_QUERYFAILED(long status) { return (status == -1); };
+        public static boolean PL_PRINTERSTATUS_DRAWER_OPENED(long status) { return (((status >> 0) & 0x04) == 0x00); };
+        public static boolean PL_PRINTERSTATUS_OFFLINE(long status) { return (((status >> 0) & 0x08) == 0x08); };
+        public static boolean PL_PRINTERSTATUS_COVERUP(long status) { return (((status >> 8) & 0x04) == 0x04); };
+        public static boolean PL_PRINTERSTATUS_FEED_PRESSED(long status) { return (((status >> 8) & 0x08) == 0x08); };
+        public static boolean PL_PRINTERSTATUS_NOPAPER(long status) { return (((status >> 8) & 0x20) == 0x20); };
+        public static boolean PL_PRINTERSTATUS_ERROR_OCCURED(long status) { return (((status >> 8) & 0x40) == 0x40); };
+        public static boolean PL_PRINTERSTATUS_CUTTER_ERROR(long status) { return (((status >> 16) & 0x08) == 0x08); };
+        public static boolean PL_PRINTERSTATUS_UNRECOVERABLE_ERROR(long status) { return (((status >> 16) & 0x20) == 0x20); };
+        public static boolean PL_PRINTERSTATUS_DEGREE_OR_VOLTAGE_OVERRANGE(long status) { return (((status >> 16) & 0x40) == 0x40); };
+        public static boolean PL_PRINTERSTATUS_PAPER_NEAREND(long status) { return (((status >> 24) & 0x0C) == 0x0C); };
+        public static boolean PL_PRINTERSTATUS_PAPER_TAKEOUT(long status) { return (((status >> 24) & 0x04) == 0x04); };
+    }
+
+
+    public static final int PrintDensity_Light = 0;
+    public static final int PrintDensity_Normal = 1;
+    public static final int PrintDensity_Dark = 2;
+
+
+    public static final int DrawAlignment_Left = -1;
+    public static final int DrawAlignment_HCenter = -2;
+    public static final int DrawAlignment_Right = -3;
+    public static final int DrawAlignment_Top = -1;
+    public static final int DrawAlignment_VCenter = -2;
+    public static final int DrawAlignment_Bottom = -3;
+
+
+    public static final int PageModeDrawDirection_LeftToRight = 0;
+    public static final int PageModeDrawDirection_BottomToTop = 1;
+    public static final int PageModeDrawDirection_RightToLeft = 2;
+    public static final int PageModeDrawDirection_TopToBottom = 3;
+
+
+    public static final int MultiByteModeEncoding_GBK = 0;
+    public static final int MultiByteModeEncoding_UTF8 = 1;
+    public static final int MultiByteModeEncoding_BIG5 = 3;
+    public static final int MultiByteModeEncoding_ShiftJIS = 4;
+    public static final int MultiByteModeEncoding_EUCKR = 5;
+
+
+    public static final int AsciiTextFontType_A = 0;
+    public static final int AsciiTextFontType_B = 1;
+    public static final int AsciiTextFontType_C = 2;
+    public static final int AsciiTextFontType_D = 3;
+    public static final int AsciiTextFontType_E = 4;
+
+
+    public static final int TextUnderline_None = 0;
+    public static final int TextUnderline_One = 1;
+    public static final int TextUnderline_Two = 2;
+
+
+    public static final int CharacterSet_USA = 0;
+    public static final int CharacterSet_FRANCE = 1;
+    public static final int CharacterSet_GERMANY = 2;
+    public static final int CharacterSet_UK = 3;
+    public static final int CharacterSet_DENMARK_I = 4;
+    public static final int CharacterSet_SWEDEN = 5;
+    public static final int CharacterSet_ITALY = 6;
+    public static final int CharacterSet_SPAIN_I = 7;
+    public static final int CharacterSet_JAPAN = 8;
+    public static final int CharacterSet_NORWAY = 9;
+    public static final int CharacterSet_DENMARK_II = 10;
+    public static final int CharacterSet_SPAIN_II = 11;
+    public static final int CharacterSet_LATIN = 12;
+    public static final int CharacterSet_KOREA = 13;
+    public static final int CharacterSet_SLOVENIA = 14;
+    public static final int CharacterSet_CHINA = 15;
+
+
+    public static final int CharacterCodepage_CP437 = 0;
+    public static final int CharacterCodepage_KATAKANA = 1;
+    public static final int CharacterCodepage_CP850 = 2;
+    public static final int CharacterCodepage_CP860 = 3;
+    public static final int CharacterCodepage_CP863 = 4;
+    public static final int CharacterCodepage_CP865 = 5;
+    public static final int CharacterCodepage_WCP1251 = 6;
+    public static final int CharacterCodepage_CP866 = 7;
+    public static final int CharacterCodepage_MIK = 8;
+    public static final int CharacterCodepage_CP755 = 9;
+    public static final int CharacterCodepage_IRAN = 10;
+    public static final int CharacterCodepage_CP862 = 15;
+    public static final int CharacterCodepage_WCP1252 = 16;
+    public static final int CharacterCodepage_WCP1253 = 17;
+    public static final int CharacterCodepage_CP852 = 18;
+    public static final int CharacterCodepage_CP858 = 19;
+    public static final int CharacterCodepage_IRAN_II = 20;
+    public static final int CharacterCodepage_LATVIAN = 21;
+    public static final int CharacterCodepage_CP864 = 22;
+    public static final int CharacterCodepage_ISO_8859_1 = 23;
+    public static final int CharacterCodepage_CP737 = 24;
+    public static final int CharacterCodepage_WCP1257 = 25;
+    public static final int CharacterCodepage_THAI = 26;
+    public static final int CharacterCodepage_CP720 = 27;
+    public static final int CharacterCodepage_CP855 = 28;
+    public static final int CharacterCodepage_CP857 = 29;
+    public static final int CharacterCodepage_WCP1250 = 30;
+    public static final int CharacterCodepage_CP775 = 31;
+    public static final int CharacterCodepage_WCP1254 = 32;
+    public static final int CharacterCodepage_WCP1255 = 33;
+    public static final int CharacterCodepage_WCP1256 = 34;
+    public static final int CharacterCodepage_WCP1258 = 35;
+    public static final int CharacterCodepage_ISO_8859_2 = 36;
+    public static final int CharacterCodepage_ISO_8859_3 = 37;
+    public static final int CharacterCodepage_ISO_8859_4 = 38;
+    public static final int CharacterCodepage_ISO_8859_5 = 39;
+    public static final int CharacterCodepage_ISO_8859_6 = 40;
+    public static final int CharacterCodepage_ISO_8859_7 = 41;
+    public static final int CharacterCodepage_ISO_8859_8 = 42;
+    public static final int CharacterCodepage_ISO_8859_9 = 43;
+    public static final int CharacterCodepage_ISO_8859_15 = 44;
+    public static final int CharacterCodepage_THAI_2 = 45;
+    public static final int CharacterCodepage_CP856 = 46;
+    public static final int CharacterCodepage_CP874 = 47;
+    public static final int CharacterCodepage_TCVN3 = 48;
+
+
+    public static final int BarcodeReadableTextFontType_Standard = 0;
+    public static final int BarcodeReadableTextFontType_Small = 1;
+
+
+    public static final int BarcodeReadableTextPosition_None = 0;
+    public static final int BarcodeReadableTextPosition_AboveBarcode = 1;
+    public static final int BarcodeReadableTextPosition_BelowBarcode = 2;
+    public static final int BarcodeReadableTextPosition_AboveAndBelowBarcode = 3;
+
+
+    public static final int PosBarcodeType_UPCA = 0x41;
+    public static final int PosBarcodeType_UPCE = 0x42;
+    public static final int PosBarcodeType_EAN13 = 0x43;
+    public static final int PosBarcodeType_EAN8 = 0x44;
+    public static final int PosBarcodeType_CODE39 = 0x45;
+    public static final int PosBarcodeType_ITF = 0x46;
+    public static final int PosBarcodeType_CODEBAR = 0x47;
+    public static final int PosBarcodeType_CODE93 = 0x48;
+    public static final int PosBarcodeType_CODE128 = 0x49;
+
+
+    public static final int QRCodeECC_L = 1;
+    public static final int QRCodeECC_M = 2;
+    public static final int QRCodeECC_Q = 3;
+    public static final int QRCodeECC_H = 4;
+
+
+    public static final int ImagePixelsFormat_MONO = 1;
+    public static final int ImagePixelsFormat_MONOLSB = 2;
+    public static final int ImagePixelsFormat_GRAY8 = 3;
+    public static final int ImagePixelsFormat_BYTEORDERED_RGB24 = 4;
+    public static final int ImagePixelsFormat_BYTEORDERED_BGR24 = 5;
+    public static final int ImagePixelsFormat_BYTEORDERED_ARGB32 = 6;
+    public static final int ImagePixelsFormat_BYTEORDERED_RGBA32 = 7;
+    public static final int ImagePixelsFormat_BYTEORDERED_ABGR32 = 8;
+    public static final int ImagePixelsFormat_BYTEORDERED_BGRA32 = 9;
+
+
+    public static final int ImageBinarizationMethod_Dithering = 0;
+    public static final int ImageBinarizationMethod_Thresholding = 1;
+
+//      获取开发包版本字符串
+//
+//  return
+//      返回开发包版本
+    public String CaysnPage_LibraryVersion();
+
+//      枚举本地串口
+//
+//  pBuf
+//      用来保存端口列表的缓冲区
+//
+//  cbBuf
+//      缓冲区字节数
+//
+//  pcbNeeded
+//      需要的缓冲区字节数
+//
+//  return
+//      枚举到的端口数量
+    public int CaysnPage_EnumComA(byte[] pBuf, int cbBuf, IntByReference pcbNeeded);
+    //public int CaysnPage_EnumComW(byte[] pBuf, int cbBuf, IntByReference pcbNeeded);
+    public class CaysnPage_EnumCom_Helper {
+        public static String[] CaysnPage_EnumComA() {
+            IntByReference pcbNeeded = new IntByReference();
+            INSTANCE.CaysnPage_EnumComA(null, 0, pcbNeeded);
+            if (pcbNeeded.getValue() > 0) {
+                byte[] pBuf = new byte[pcbNeeded.getValue()];
+                if (pBuf != null) {
+                    INSTANCE.CaysnPage_EnumComA(pBuf, pBuf.length, null);
+                    String s = new String(pBuf);
+                    String[] ss = s.split("\0");
+                    return ss;
+                }
+            }
+            return null;
+        }
+    }
+
+//      枚举本地USB打印口
+//
+//  pBuf
+//      用来保存端口列表的缓冲区
+//
+//  cbBuf
+//      缓冲区字节数
+//
+//  pcbNeeded
+//      需要的缓冲区字节数
+//
+//  return
+//      枚举到的端口数量
+    public int CaysnPage_EnumUsbVidPidA(byte[] pBuf, int cbBuf, IntByReference pcbNeeded);
+    //public int CaysnPage_EnumUsbVidPidW(byte[] pBuf, int cbBuf, IntByReference pcbNeeded);
+    public class CaysnPage_EnumUsbVidPid_Helper {
+        public static String[] CaysnPage_EnumUsbVidPidA() {
+            IntByReference pcbNeeded = new IntByReference();
+            INSTANCE.CaysnPage_EnumUsbVidPidA(null, 0, pcbNeeded);
+            if (pcbNeeded.getValue() > 0) {
+                byte[] pBuf = new byte[pcbNeeded.getValue()];
+                if (pBuf != null) {
+                    INSTANCE.CaysnPage_EnumUsbVidPidA(pBuf, pBuf.length, null);
+                    String s = new String(pBuf);
+                    String[] ss = s.split("\0");
+                    return ss;
+                }
+            }
+            return null;
+        }
+    }
+
+//      枚举网络打印机
+//  
+//  timeout
+//      超时毫秒时间
+// 
+//  cancel
+//      取消标记位，如果设为非零，则枚举提前退出
+//  
+//  on_discovered
+//      枚举回调接口
+//
+//  private_data
+//      传给回调接口的参数
+//
+//  return 
+//      无
+    interface on_netprinter_discovered_a_callback extends Callback {
+        void on_netprinter_discovered_a(String local_ip, String discovered_mac, String discovered_ip, String discovered_name, Pointer private_data);
+    }
+    public void CaysnPage_EnumNetPrinterA(int timeout, IntByReference cancel, on_netprinter_discovered_a_callback scanCallback, Pointer data);
+
+//      枚举蓝牙2.0打印机
+//  
+//  on_discovered
+//      枚举回调接口
+//
+//  private_data
+//      传给回调接口的参数
+//
+//  return 
+//      无
+    interface on_btdevice_discovered_a_callback extends Callback {
+        void on_btdevice_discovered_a(String device_name, String device_address, Pointer private_data);
+    }
+    public void CaysnPage_EnumBtDeviceA(int timeout, IntByReference cancel, on_btdevice_discovered_a_callback scanCallback, Pointer data);
+
+//      枚举蓝牙4.0打印机
+//  
+//  on_discovered
+//      枚举回调接口
+//
+//  private_data
+//      传给回调接口的参数
+//
+//  return 
+//      无
+    public void CaysnPage_EnumBleDeviceA(int timeout, IntByReference cancel, on_btdevice_discovered_a_callback scanCallback, Pointer data);
+
+//      打开串口
+//
+// name 
+//      端口名称
+//      例如：COM1，COM2，COM3，...COM11...
+//
+// baudrate 
+//      波特率
+//      一般取 9600,19200,38400,57600,115200.
+//      需要和打印机波特率保持一致，建议使用高波特率以获得较好的打印速度
+//
+// databits
+//      数据位，范围[4,8]
+//
+// parity 
+//      校验位，各值定义如下：
+//      值    定义
+//      0     无校验
+//      1     奇校验
+//      2     偶校验
+//      3     标记校验
+//      4     空白校验
+//
+// stopbits 
+//      停止位，各值定义如下：
+//      值    定义
+//      0     1位停止位
+//      1     1.5位停止位
+//      2     2位停止位
+//
+// flowcontrol
+//      流控制
+//
+// return 
+//      返回打开的端口句柄。非零表示打开成功，零表示打开失败。
+//
+// remarks
+//      如果串口被占用，打开串口会失败。
+//      如果波特率和打印机波特率不匹配，则无法打印。
+    public Pointer CaysnPage_OpenComA(String name, int baudrate, int databits, int parity, int stopbits, int flowcontrol);
+    public Pointer CaysnPage_OpenComW(WString name, int baudrate, int databits, int parity, int stopbits, int flowcontrol);
+
+//      打开网口
+//
+// ip 
+//      地址或名称
+//      例如：192.168.1.87
+//
+// port 
+//      端口号
+//      固定值：9100
+//
+// timeout
+//      连接超时
+//
+// return 
+//      返回打开的端口句柄。非零表示打开成功，零表示打开失败。
+//
+// remarks
+//      PC和打印机需要同网段的才可以连接
+    public Pointer CaysnPage_OpenTcpA(String ip, short port, int timeout);
+    public Pointer CaysnPage_OpenTcpW(WString ip, short port, int timeout);
+
+//      在指定接口上打开网口
+//
+// ip 
+//      地址或名称
+//      例如：192.168.1.87
+//
+// port 
+//      端口号
+//      固定值：9100
+//
+// bind_local_addr 
+//      绑定到本地ip
+//      PC安装多网卡的时候，可以指定该项
+//      也可以直接传入0自动选择
+//
+// timeout
+//      连接超时
+//
+// return 
+//      返回打开的端口句柄。非零表示打开成功，零表示打开失败。
+//
+// remarks
+//      PC和打印机需要同网段的才可以连接
+    public Pointer CaysnPage_OpenTcpBindInterfaceA(String ip, short port, String bind_local_addr, int timeout);
+    public Pointer CaysnPage_OpenTcpBindInterfaceW(WString ip, short port, WString bind_local_addr, int timeout);
+
+//      打开Usb
+//
+// vid 
+//      usb vid
+//
+// pid
+//      usb pid
+//
+// return 
+//      返回打开的端口句柄。非零表示打开成功，零表示打开失败。
+//
+// remarks
+//      only for android
+    public Pointer CaysnPage_OpenUsbVidPid(short vid, short pid);
+    public Pointer CaysnPage_OpenUsbVidPidStringA(String name);
+    public Pointer CaysnPage_OpenUsbVidPidStringW(WString name);
+
+//      连接蓝牙2.0打印机
+//
+// address
+//      打印机地址
+//      例如："01:02:03:04:05:06"
+//
+// return 
+//      返回打开的端口句柄。非零表示打开成功，零表示打开失败。
+//
+// remarks
+//      only for android
+    public Pointer CaysnPage_OpenBT2ByConnectA(String address);
+    public Pointer CaysnPage_OpenBT2ByConnectW(WString address);
+
+//      监听蓝牙2.0打印机
+//
+// timeout
+//      连接超时
+//
+// address
+//      存储已连接打印机的蓝牙地址
+//      例如："01:02:03:04:05:06"
+//
+// return 
+//      返回打开的端口句柄。非零表示打开成功，零表示打开失败。
+//
+// remarks
+//      only for android
+    public Pointer CaysnPage_OpenBT2ByListenA(int timeout, byte[] address);
+
+//      连接蓝牙4.0打印机
+//
+// address
+//      打印机地址
+//      例如："01:02:03:04:05:06"
+//
+// return 
+//      返回打开的端口句柄。非零表示打开成功，零表示打开失败。
+//
+// remarks
+//      only for android
+    public Pointer CaysnPage_OpenBT4ByConnectA(String address);
+    public Pointer CaysnPage_OpenBT4ByConnectW(WString address);
+
+//      打开文件
+//
+// name
+//      文件名
+//
+// return 
+//      返回打开的端口句柄。非零表示打开成功，零表示打开失败。
+//
+// remarks
+//      只可写不可读。
+//      一切查询状态的函数均是无效的。
+    public Pointer CaysnPage_OpenFileNewA(String name);
+    public Pointer CaysnPage_OpenFileNewW(WString name);
+
+//      打开文件，后续的打印数据会附加在文件中
+//
+// name
+//      文件名
+//
+// return 
+//      返回打开的端口句柄。非零表示打开成功，零表示打开失败。
+//
+// remarks
+//      只可写不可读。
+//      一切查询状态的函数均是无效的。
+    public Pointer CaysnPage_OpenFileAppendA(String name);
+    public Pointer CaysnPage_OpenFileAppendW(WString name);
+
+//      分配一段内存空间，后续的打印数据会写入到该内存区域
+//
+// nMemorySpaceSize
+//      内存空间大小
+//
+// return 
+//      返回打开的端口句柄。非零表示打开成功，零表示打开失败。
+//
+// remarks
+//      只可写不可读。
+//      一切查询状态的函数均是无效的。
+//      可通过MemoryData，MemoryDataLength来获取数据
+//      可通过ClearMemoryData来清楚内存数据
+    public Pointer CaysnPage_OpenMemory(int nMemorySpaceSize);
+
+//      获取内存空间的数据
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      缓冲区指针
+//
+// remarks
+//      无
+    public Pointer CaysnPage_MemoryData(Pointer handle);
+    public class CaysnPage_MemoryData_Helper {
+        public static byte[] CaysnPage_MemoryByteArray(Pointer handle) {
+            Pointer pdata = INSTANCE.CaysnPage_MemoryData(handle);
+            int data_size = INSTANCE.CaysnPage_MemoryDataLength(handle);
+            if (pdata != Pointer.NULL) {
+                byte[] buffer = pdata.getByteArray(0, data_size);
+                return buffer;
+            }
+            return null;
+        }
+    }
+
+//      内存空间的数据长度
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      缓冲区数据长度
+//
+// remarks
+//      无
+    public int CaysnPage_MemoryDataLength(Pointer handle);
+
+//      清除内存空间的数据
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      无
+//
+// remarks
+//      无
+    public void CaysnPage_ClearMemoryData(Pointer handle);
+
+
+    interface on_bytes_writed_callback extends Callback {
+        // scanCallback not support byte[]
+        void on_bytes_writed(Pointer buffer, int count, Pointer private_data);
+    }
+    public int CaysnPage_SetWritedEvent(Pointer handle, on_bytes_writed_callback scanCallback, Pointer private_data);
+
+
+    interface on_bytes_readed_callback extends Callback {
+        // scanCallback not support byte[]
+        void on_bytes_readed(Pointer buffer, int count, Pointer private_data);
+    }
+    public int CaysnPage_SetReadedEvent(Pointer handle, on_bytes_readed_callback scanCallback, Pointer private_data);
+
+
+    interface on_port_closed_callback extends Callback {
+        void on_port_closed(Pointer private_data);
+    }
+    public int CaysnPage_SetClosedEvent(Pointer handle, on_port_closed_callback scanCallback, Pointer private_data);
+
+//      向端口写入数据
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// buffer 
+//      要写入的数据
+//
+// count 
+//      要写入的长度
+//
+// timeout 
+//      写入超时毫秒
+//
+// return 
+//      返回写入的字节数，-1表示写入失败
+    public int CaysnPage_Write(Pointer handle, byte[] buffer, int count, int timeout);
+
+//      从端口接收数据
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// buffer 
+//      接收数据的缓冲区
+//
+// count 
+//      要接收的数据长度
+//
+// timeout 
+//      读取超时毫秒
+//
+// return 
+//      返回读取的字节数，-1表示失败
+    public int CaysnPage_Read(Pointer handle, byte[] buffer, int count, int timeout);
+
+//      从端口接收数据
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// buffer 
+//      接收数据的缓冲区
+//
+// count 
+//      要接收的数据长度
+//
+// timeout 
+//      读取超时毫秒
+//
+// breakByte
+//      结束读取字符
+//
+// return 
+//      返回读取的字节数，-1表示失败
+    public int CaysnPage_ReadUntilByte(Pointer handle, byte[] buffer, int count, int timeout, byte breakByte);
+
+//      忽略接收缓冲区的数据
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      无
+    public void CaysnPage_SkipAvailable(Pointer handle);
+
+//      强制将写入缓冲区的数据送出（当前仅对Prn端口返回的有效）
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      无
+    public void CaysnPage_FlushBuffer(Pointer handle);
+
+//      关闭端口
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      无
+    public void CaysnPage_Close(Pointer handle);
+
+//      查询并等待打印机缓冲区空
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// timeout 
+//      超时毫秒时间
+//
+// return 
+//      返回打印缓冲区是否已空，各值定义如下
+//      值  定义
+//      0   缓冲区已空
+//      -1  端口已关闭
+//      -2  写入失败
+//      -3  读取失败
+//      -4  缓冲区不为空
+    public int CaysnPage_QueryPrinterBufferEmpty(Pointer handle, int timeout);
+
+//      实时查询打印机状态（钱箱，纸张，错误）
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// timeout 
+//      超时毫秒时间
+//
+// return 
+//      返回打印机状态。-1表示查询失败。
+//      可通过宏定义访问详细状态信息
+    public int CaysnPage_QueryPrinterStatus(Pointer handle, int timeout);
+
+//      查询打印结果
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// timeout 
+//      超时时间
+//
+// return 
+//      返回对应状态，各值定义如下
+//      值  定义
+//      0   打印成功
+//      -1  端口已关闭
+//      -2  写入失败
+//      -3  读取失败
+//      -4  打印机无响应
+//      -102 打印机已脱机
+//      -103  打印机缺纸
+//      -101  其他错误
+    public int CaysnPage_QueryPrintResult(Pointer handle, int timeout);
+
+//      开钱箱（产生钱箱脉冲）
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nDrawerIndex 
+//      钱箱编号，各值说明如下
+//      编号      说明
+//        0      钱箱引脚2
+//        1      钱箱引脚5
+//
+// nHighLevelTime 
+//      高电平毫秒时间
+//
+// nLowLevelTime 
+//      低电平毫秒时间
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_KickOutDrawer(Pointer handle, int nDrawerIndex, int nHighLevelTime, int nLowLevelTime);
+
+//      蜂鸣器鸣叫
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nBeepCount
+//      鸣叫次数
+//
+// nBeepMs
+//      蜂鸣毫秒时间，取值范围[100,900]。取整到百毫秒。
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_Beep(Pointer handle, int nBeepCount, int nBeepMs);
+
+//      走纸到切刀位置并半切纸
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_FeedAndHalfCutPaper(Pointer handle);
+
+//      切刀全切
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_FullCutPaper(Pointer handle);
+
+//      切刀半切
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_HalfCutPaper(Pointer handle);
+
+//      复位打印机，清除设置
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_ResetPrinter(Pointer handle);
+
+//      设置打印机
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// setType
+//      设置类型
+//
+// buffer 
+//      要写入的数据
+//
+// count 
+//      要写入的长度
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetPrinter(Pointer handle, int setType, byte[] buffer, int count);
+
+//      设置打印速度（部分机型支持）
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nSpeed
+//      打印速度，单位毫米每秒
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetPrintSpeed(Pointer handle, int nSpeed);
+
+//      设置打印浓度（部分机型支持）
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nDensity
+//      设置打印浓度，各值定义如下：
+//      值 定义
+//      0  淡
+//      1  中
+//      2  浓
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetPrintDensity(Pointer handle, int nDensity);
+
+//      设置打印加热参数（部分机型支持）
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nMaxHeatDots
+//      最大加热点数
+//
+// nHeatOnTime
+//      加热时间(us)
+//
+// nHeatOffTime
+//      加热间隔时间(us)
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetPrintHeatPara(Pointer handle, int nMaxHeatDots, int nHeatOnTime, int nHeatOffTime);
+
+//      打印机打印自检页
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_PrintSelfTestPage(Pointer handle);
+
+//      设置打印移动单位
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nHorizontalMovementUnit
+//      水平移动单位
+//
+// nVerticalMovementUnit
+//      垂直移动单位
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      移动单位设置为200，则1mm=8点。
+    public int CaysnPage_SetMovementUnit(Pointer handle, int nHorizontalMovementUnit, int nVerticalMovementUnit);
+
+//      选择页模式
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SelectPageMode(Pointer handle);
+
+//      选择页模式，并设置移动单位和页面大小，还会设置其他一系列参数为默认值
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nHorizontalMovementUnit
+//      水平移动单位
+//
+// nVerticalMovementUnit
+//      垂直移动单位
+//
+// x
+//      横向起始位置
+//
+// y
+//      纵向起始位置
+//
+// width
+//      打印区域宽度
+//
+// height
+//      打印区域高度
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SelectPageModeEx(Pointer handle, int nHorizontalMovementUnit, int nVerticalMovementUnit, int x, int y, int width, int height);
+
+//      退出页模式并回到标准模式
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_ExitPageMode(Pointer handle);
+
+//      页模式下打印内容
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_PrintPage(Pointer handle);
+
+//      页模式下清除页面
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_ClearPage(Pointer handle);
+
+//      页模式下设置页区域
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向起始位置
+//
+// y
+//      纵向起始位置
+//
+// width
+//      打印区域宽度
+//
+// height
+//      打印区域高度
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetPageArea(Pointer handle, int x, int y, int width, int height);
+
+//      页模式下设置打印方向
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nDirection
+//      打印区域方向，各值定义如下：
+//      0    从左到右
+//      1    从下到上
+//      2    从右到左
+//      3    从上到下
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetPageModeDrawDirection(Pointer handle, int nDirection);
+
+//      设置横向绝对打印位置
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nPosition
+//      打印位置
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetHorizontalAbsolutePrintPosition(Pointer handle, int nPosition);
+
+//      设置横向相对打印位置
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nPosition
+//      打印位置
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetHorizontalRelativePrintPosition(Pointer handle, int nPosition);
+
+//      设置纵向绝对打印位置
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nPosition
+//      打印位置
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetVerticalAbsolutePrintPosition(Pointer handle, int nPosition);
+
+//      设置纵向相对打印位置
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nPosition
+//      打印位置
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetVerticalRelativePrintPosition(Pointer handle, int nPosition);
+
+//      打印机进纸指定行数
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// numLines
+//      要进的行数
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_FeedLine(Pointer handle, int numLines);
+
+//      打印机进纸指定点数
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// numDots
+//      要进的点数
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_FeedDot(Pointer handle, int numDots);
+
+//      打印文本
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// str 
+//      要打印的字符串
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawTextA(Pointer handle, String str);
+
+//      打印文本
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// str 
+//      要打印的字符串
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      该函数会将数据转为UTF8编码发送。
+    public int CaysnPage_DrawTextInUTF8W(Pointer handle, WString str);
+
+//      打印文本
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// str 
+//      要打印的字符串
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      该函数会将数据转为GBK编码发送。
+    public int CaysnPage_DrawTextInGBKW(Pointer handle, WString str);
+
+//      打印文本
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// str 
+//      要打印的字符串
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      该函数会将数据转为BIG5编码发送。
+    public int CaysnPage_DrawTextInBIG5W(Pointer handle, WString str);
+
+//      打印文本
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// str 
+//      要打印的字符串
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      该函数会将数据转为ShiftJIS编码发送。
+    public int CaysnPage_DrawTextInShiftJISW(Pointer handle, WString str);
+
+//      打印文本
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// str 
+//      要打印的字符串
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      该函数会将数据转为EUCKR编码发送。
+    public int CaysnPage_DrawTextInEUCKRW(Pointer handle, WString str);
+
+//      设置文本放大倍数
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nWidthScale
+//      宽度放大倍数
+//
+// nHeightScale
+//      高度放大倍数
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetTextScale(Pointer handle, int nWidthScale, int nHeightScale);
+
+//      设置英文字符字体类型
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nFontType
+//      英文字符字体类型，各值定义如下：
+//      值  定义
+//      0   字型A（12x24）
+//      1   字型B（9x17）
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetAsciiTextFontType(Pointer handle, int nFontType);
+
+//      设置文本加粗打印
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nBold
+//      是否加粗，各值定义如下：
+//      值  定义
+//      0   不加粗
+//      1   加粗
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetTextBold(Pointer handle, int nBold);
+
+//      设置文本下划线
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nUnderline
+//      文本下划线，各值定义如下：
+//      值  定义
+//      0   无下划线
+//      1   1点下划线
+//      2   2点下划线
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetTextUnderline(Pointer handle, int nUnderline);
+
+//      设置黑白反显
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nWhiteOnBlack
+//      黑白反显，各值定义如下：
+//      值  定义
+//      0   不黑白反显
+//      1   黑白反显
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetTextWhiteOnBlack(Pointer handle, int nWhiteOnBlack);
+
+//      设置行高
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nLineHeight
+//      行高，范围[1,255]
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetTextLineHeight(Pointer handle, int nLineHeight);
+
+//      设置ASCII字符右边空白
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nSpacing
+//      右边空白，范围[1,255]
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetAsciiTextCharRightSpacing(Pointer handle, int nSpacing);
+
+//      设置汉字文本字符左边空白和右边空白
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nLeftSpacing
+//      右边空白，范围[1,255]
+//
+// nRightSpacing
+//      右边空白，范围[1,255]
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetKanjiTextCharSpacing(Pointer handle, int nLeftSpacing, int nRightSpacing);
+
+//      设置打印机为单字节编码
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetSingleByteMode(Pointer handle);
+
+//      设置打印机字符集
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nCharacterSet
+//      打印机字符集，范围[0,15]
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetCharacterSet(Pointer handle, int nCharacterSet);
+
+//      设置字符代码页
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nCharacterCodepage
+//      字符代码页，范围[0,255]
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetCharacterCodepage(Pointer handle, int nCharacterCodepage);
+
+//      设置打印机为多字节编码
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetMultiByteMode(Pointer handle);
+
+//      设置打印机多字节编码
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nEncoding
+//      多字节编码，各值定义如下：
+//      值  定义
+//      0   GBK
+//      1   UTF8
+//      3   BIG5
+//      4   SHIFT-JIS
+//      5   EUC-KR
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetMultiByteEncoding(Pointer handle, int nEncoding);
+
+//      定义用户自定义字符字型
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// ch
+//      需要自定义的字符，取值范围[0x20, 0x7E]
+//
+// pszFile 
+//      图片的路径
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      如果图片宽高不为12x24，则缩放到12x24。
+    public int CaysnPage_SetUserCharacterPatternFromFileA(Pointer handle, byte ch, String pszFile);
+    public int CaysnPage_SetUserCharacterPatternFromFileW(Pointer handle, byte ch, WString pszFile);
+
+//      定义用户自定义字符字型
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// ch
+//      需要自定义的字符，取值范围[0x20, 0x7E]
+//
+// data 
+//      图片数据。
+//
+// data_size 
+//      图片数据长度
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      如果图片宽高不为12x24，则缩放到12x24。
+    public int CaysnPage_SetUserCharacterPatternFromData(Pointer handle, byte ch, byte[] data, int data_size);
+    public class CaysnPage_SetUserCharacterPattern_Helper {
+        public static int CaysnPage_SetUserCharacterPatternFromBitmap(Pointer handle, byte ch, Bitmap bitmap) {
+            int result = 0;
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, os)) {
+                byte[] data = os.toByteArray();
+                result = INSTANCE.CaysnPage_SetUserCharacterPatternFromData(handle, ch, data, data.length);
+            }
+            return result;
+        }
+    }
+
+//      定义用户自定义字符字型
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// ch
+//      需要自定义的字符，取值范围[0x20, 0x7E]
+//
+// img_data 
+//      图片的像素数据。
+//
+// img_datalen
+//      图片的像素数据字节数。
+//
+// img_width 
+//      图片的像素宽度。
+//
+// img_height 
+//      图片的像素高度。
+//
+// img_stride 
+//      图片水平跨度。表示每行字节数。
+//
+// img_format
+//      图片像素数据格式，各值定义如下
+//      值    定义
+//      1     mono 
+//      2     monolsb 
+//      3     gray
+//      4     r.g.b in byte-ordered
+//      5     b.g.r in byte-ordered
+//      6     a.r.g.b in byte-ordered
+//      7     r.g.b.a in byte-ordered
+//      8     a.b.g.r in byte-ordered
+//      9     b.g.r.a in byte-ordered
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      如果图片宽高不为12x24，则缩放到12x24。
+    public int CaysnPage_SetUserCharacterPatternFromPixels(Pointer handle, byte ch, byte[] img_data, int img_datalen, int img_width, int img_height, int img_stride, int img_format);
+
+//      清除用户自定义字符字型
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// ch
+//      需要清除的自定义字符，取值范围[0x20, 0x7E]
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_ClearUserCharacterPattern(Pointer handle, byte ch);
+
+//      设置是否启用用户自定义字符集
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// enable
+//      是否启用
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetUserCharacterEnable(Pointer handle, int enable);
+
+//      定义用户自定义汉字字型
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// c1
+//      自定义字符字节编码的第一个字节
+//
+// c2
+//      自定义字符字节编码的第二个字节
+//
+// pszFile 
+//      图片的路径
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      如果图片宽高不为24x24，则缩放到24x24。
+    public int CaysnPage_SetUserKanjiPatternFromFileA(Pointer handle, byte c1, byte c2, String pszFile);
+    public int CaysnPage_SetUserKanjiPatternFromFileW(Pointer handle, byte c1, byte c2, WString pszFile);
+
+//      定义用户自定义汉字字型
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// c1
+//      自定义字符字节编码的第一个字节
+//
+// c2
+//      自定义字符字节编码的第二个字节
+//
+// data 
+//      图片数据。
+//
+// data_size 
+//      图片数据长度
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      如果图片宽高不为24x24，则缩放到24x24。
+    public int CaysnPage_SetUserKanjiPatternFromData(Pointer handle, byte c1, byte c2, byte[] data, int data_size);
+    public class CaysnPage_SetUserKanjiPattern_Helper {
+        public static int CaysnPage_SetUserKanjiPatternFromBitmap(Pointer handle, byte c1, byte c2, Bitmap bitmap) {
+            int result = 0;
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, os)) {
+                byte[] data = os.toByteArray();
+                result = INSTANCE.CaysnPage_SetUserKanjiPatternFromData(handle, c1, c2, data, data.length);
+            }
+            return result;
+        }
+    }
+
+//      定义用户自定义汉字字型
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// c1
+//      自定义字符字节编码的第一个字节
+//
+// c2
+//      自定义字符字节编码的第二个字节
+//
+// img_data 
+//      图片的像素数据。
+//
+// img_datalen
+//      图片的像素数据字节数。
+//
+// img_width 
+//      图片的像素宽度。
+//
+// img_height 
+//      图片的像素高度。
+//
+// img_stride 
+//      图片水平跨度。表示每行字节数。
+//
+// img_format
+//      图片像素数据格式，各值定义如下
+//      值    定义
+//      1     mono 
+//      2     monolsb 
+//      3     gray
+//      4     r.g.b in byte-ordered
+//      5     b.g.r in byte-ordered
+//      6     a.r.g.b in byte-ordered
+//      7     r.g.b.a in byte-ordered
+//      8     a.b.g.r in byte-ordered
+//      9     b.g.r.a in byte-ordered
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      如果图片宽高不为24x24，则缩放到24x24。
+    public int CaysnPage_SetUserKanjiPatternFromPixels(Pointer handle, byte c1, byte c2, byte[] img_data, int img_datalen, int img_width, int img_height, int img_stride, int img_format);
+
+//      打印一维条码
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nBarcodeType 
+//      标识条码类型 
+//      各值定义如下：
+//      值    类型
+//      0x41     UPC-A
+//      0x42     UPC-E
+//      0x43     EAN13
+//      0x44     EAN8
+//      0x45     CODE39
+//      0x46     ITF
+//      0x47     CODABAR
+//      0x48     CODE93
+//      0x49     CODE128
+//
+// str 
+//      要打印的条码
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawBarcodeA(Pointer handle, int nBarcodeType, String str);
+    public int CaysnPage_DrawBarcodeW(Pointer handle, int nBarcodeType, WString str);
+
+//      设置条码和二维码单元宽度
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nBarcodeUnitWidth
+//      条码单元宽度，取值范围：[1,6]
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetBarcodeUnitWidth(Pointer handle, int nBarcodeUnitWidth);
+
+//      设置条码高度
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nBarcodeHeight 
+//      定义条码高度。取值范围：[1,255]
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetBarcodeHeight(Pointer handle, int nBarcodeHeight);
+
+//      设置条码可读字符字体类型
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nFontType
+//      指定可读字符的字体类型，各值定义如下：
+//      值  类型
+//      0   标准ASCII
+//      1   压缩ASCII
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetBarcodeReadableTextFontType(Pointer handle, int nFontType);
+
+//      设置条码可读字符打印位置
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nTextPosition
+//      条码可读字符位置，取值范围：[0, 3].
+//      各值定义如下： 
+//      值 定义 
+//      0 不显示可读字符
+//      1 在条码下方显示可读字符
+//      2 在条码上方显示可读字符
+//      3 在条码上方和条码下方显示可读字符
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetBarcodeReadableTextPosition(Pointer handle, int nTextPosition);
+
+//      打印QR码
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nVersion 
+//      指定字符版本。取值范围：[0,16]。
+//      当 version 为 0 时，打印机根据字符串长度自动计算版本号。
+//
+// nECCLevel 
+//      指定纠错等级。取值范围：[1, 4]。
+//      各值定义如下： 
+//      ECC 纠错等级 
+//      1   L：7%，低纠错，数据多。 
+//      2   M：15%，中纠错 
+//      3   Q：优化纠错 
+//      4   H：30%，最高纠错，数据少。
+//
+// str 
+//      要打印的QR码
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawQRCodeA(Pointer handle, int nVersion, int nECCLevel, String str);
+    public int CaysnPage_DrawQRCodeW(Pointer handle, int nVersion, int nECCLevel, WString str);
+
+//      打印QR码
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// nQRCodeUnitWidth 
+//      QRCode 码码块宽度，取值范围：[1, 16]。
+//
+// nECCLevel 
+//      指定纠错等级。取值范围：[1, 4]。
+//      各值定义如下： 
+//      ECC 纠错等级 
+//      1   L：7%，低纠错，数据多。 
+//      2   M：15%，中纠错 
+//      3   Q：优化纠错 
+//      4   H：30%，最高纠错，数据少。
+//
+// str 
+//      要打印的QR码
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawQRCodeUseEpsonCmdA(Pointer handle, int nQRCodeUnitWidth, int nECCLevel, String str);
+    public int CaysnPage_DrawQRCodeUseEpsonCmdW(Pointer handle, int nQRCodeUnitWidth, int nECCLevel, WString str);
+
+//      打印PDF417条码
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// columnCount
+//      列数，取值范围[0,30]
+//
+// rowCount
+//      行数，取值范围0,[3,90]
+//
+// unitWidth
+//      模块单元宽度，取值范围[2,8]
+//
+// rowHeight 
+//      行高，取值范围[2,8]
+//
+// nECCLevel 
+//      指定纠错等级。取值范围：[0,8]。
+//
+// dataProcessingMode
+//      数据处理模式。0选择标准PDF417，1选择截断PDF417。
+//
+// str 
+//      要打印的PDF417码
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawPDF417BarcodeUseEpsonCmdA(Pointer handle, int columnCount, int rowCount, int unitWidth, int rowHeight, int nECCLevel, int dataProcessingMode, String str);
+    public int CaysnPage_DrawPDF417BarcodeUseEpsonCmdW(Pointer handle, int columnCount, int rowCount, int unitWidth, int rowHeight, int nECCLevel, int dataProcessingMode, WString str);
+
+//      获取图片宽高
+//
+// pszFile 
+//      图片的路径
+//
+// depth
+//      图片的位深
+//
+// width 
+//      图片的宽度
+//
+// height 
+//      图片的高度
+//
+// return 
+//      返回值指示是否获取成功。返回true表示获取成功，返回false表示获取失败。
+    public int CaysnPage_GetImageSizeFromFileA(String pszFile, IntByReference depth, IntByReference width, IntByReference height);
+    public int CaysnPage_GetImageSizeFromFileW(WString pszFile, IntByReference depth, IntByReference width, IntByReference height);
+
+//      从图片数据中获取图片宽和高
+//
+// data 
+//      图片数据。
+//
+// data_size 
+//      图片数据长度
+//
+// depth
+//      图片的位深
+//
+// width 
+//      图片的宽度
+//
+// height 
+//      图片的高度
+//
+// return 
+//      返回值指示是否获取成功。返回true表示获取成功，返回false表示获取失败。
+// 
+// remarks
+//      支持获取主流图片格式的信息，包括但不限于BMP，JPG,PNG等。
+    public int CaysnPage_GetImageSizeFromData(byte[] data, int data_size, IntByReference depth, IntByReference width, IntByReference height);
+
+//      打印图片
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// dstw 
+//      要打印的宽度
+//
+// dsth 
+//      要打印的高度
+//
+// pszFile 
+//      图片的路径
+//
+// binaryzation_method
+//      图片二值化算法。0表示抖动算法，1表示阀值算法。具体效果请测试查看。
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawEpsonTM88IVImageUseGS8CmdFromFileA(Pointer handle, int dstw, int dsth, String pszFile, int binaryzation_method);
+    public int CaysnPage_DrawEpsonTM88IVImageUseGS8CmdFromFileW(Pointer handle, int dstw, int dsth, WString pszFile, int binaryzation_method);
+
+//      打印图片（图片可由文件读取）
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// dstw 
+//      要打印的宽度
+//
+// dsth 
+//      要打印的高度
+//
+// data 
+//      图片数据。
+//
+// data_size 
+//      图片数据长度
+//
+// binaryzation_method
+//      图片二值化算法。0表示抖动算法，1表示阀值算法。具体效果请测试查看。
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawEpsonTM88IVImageUseGS8CmdFromData(Pointer handle, int dstw, int dsth, byte[] data, int data_size, int binaryzation_method);
+    public class CaysnPage_DrawEpsonTM88IVImageUseGS8Cmd_Helper {
+        public static int CaysnPage_DrawEpsonTM88IVImageUseGS8CmdFromBitmap(Pointer handle, int dstw, int dsth, Bitmap bitmap, int binaryzation_method) {
+            int result = 0;
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, os)) {
+                byte[] data = os.toByteArray();
+                result = INSTANCE.CaysnPage_DrawEpsonTM88IVImageUseGS8CmdFromData(handle, dstw, dsth, data, data.length, binaryzation_method);
+            }
+            return result;
+        }
+    }
+
+//      打印图片像素数据
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// img_data 
+//      图片的像素数据。
+//
+// img_datalen
+//      图片的像素数据字节数。
+//
+// img_width 
+//      图片的像素宽度。
+//
+// img_height 
+//      图片的像素高度。
+//
+// img_stride 
+//      图片水平跨度。表示每行字节数。
+//
+// img_format
+//      图片像素数据格式，各值定义如下
+//      值    定义
+//      1     mono 
+//      2     monolsb 
+//      3     gray
+//      4     r.g.b in byte-ordered
+//      5     b.g.r in byte-ordered
+//      6     a.r.g.b in byte-ordered
+//      7     r.g.b.a in byte-ordered
+//      8     a.b.g.r in byte-ordered
+//      9     b.g.r.a in byte-ordered
+//
+// binaryzation_method
+//      图片二值化算法。0表示抖动算法，1表示阀值算法。具体效果请测试查看。
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawEpsonTM88IVImageUseGS8CmdFromPixels(Pointer handle, byte[] img_data, int img_datalen, int img_width, int img_height, int img_stride, int img_format, int binaryzation_method);
+
+//      启用黑标模式
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_EnableBlackMarkMode(Pointer handle);
+
+//      禁用黑标模式
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DisableBlackMarkMode(Pointer handle);
+
+//      设置黑标最大查找距离（重启仍有效）
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// maxFindLength
+//      最大查找距离（maxFindLength x 0.125 毫米）
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetBlackMarkMaxFindLength(Pointer handle, int maxFindLength);
+
+//      查找下一个黑标
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_FindBlackMark(Pointer handle);
+
+//      黑标模式下，设置起始打印位置的调整值
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// position
+//      大于0则指定为进纸，小于0则指定为退纸。距离为 position x 0.125 毫米。
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetBlackMarkPaperPrintPosition(Pointer handle, int position);
+
+//      黑标模式下，设置切纸位置
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// position
+//      大于0则指定为进纸，小于0则指定为退纸。距离为 position x 0.125 毫米。
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_SetBlackMarkPaperCutPosition(Pointer handle, int position);
+
+//      切刀全切
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_FullCutBlackMarkPaper(Pointer handle);
+
+//      切刀半切
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_HalfCutBlackMarkPaper(Pointer handle);
+
+//      画矩形
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// width
+//      矩形宽度
+//
+// height
+//      矩形高度
+//
+// color
+//      矩形颜色，0是白色，1是黑色
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawRect(Pointer handle, int x, int y, int width, int height, int color);
+
+//      画矩形框
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// width
+//      矩形框宽度
+//
+// height
+//      矩形框高度
+//
+// borderwidth
+//      矩形框边框宽度
+//
+// bordercolor
+//      矩形框边框颜色，0是白色，1是黑色
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawBox(Pointer handle, int x, int y, int width, int height, int borderwidth, int bordercolor);
+
+//      打印文本
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// str 
+//      要打印的字符串
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawTextSpecifyPositionA(Pointer handle, int x, int y, String str);
+
+//      打印文本
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// str 
+//      要打印的字符串
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      该函数会将数据转为UTF8编码发送。
+    public int CaysnPage_DrawTextSpecifyPositionInUTF8W(Pointer handle, int x, int y, WString str);
+
+//      打印文本
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// str 
+//      要打印的字符串
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      该函数会将数据转为GBK编码发送。
+    public int CaysnPage_DrawTextSpecifyPositionInGBKW(Pointer handle, int x, int y, WString str);
+
+//      打印文本
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// str 
+//      要打印的字符串
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      该函数会将数据转为BIG5编码发送。
+    public int CaysnPage_DrawTextSpecifyPositionInBIG5W(Pointer handle, int x, int y, WString str);
+
+//      打印文本
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// str 
+//      要打印的字符串
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      该函数会将数据转为ShiftJIS编码发送。
+    public int CaysnPage_DrawTextSpecifyPositionInShiftJISW(Pointer handle, int x, int y, WString str);
+
+//      打印文本
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// str 
+//      要打印的字符串
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+// 
+// remarks
+//      该函数会将数据转为EUCKR编码发送。
+    public int CaysnPage_DrawTextSpecifyPositionInEUCKRW(Pointer handle, int x, int y, WString str);
+
+//      打印一维条码
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// nBarcodeType 
+//      标识条码类型 
+//      各值定义如下：
+//      值    类型
+//      0x41     UPC-A
+//      0x42     UPC-E
+//      0x43     EAN13
+//      0x44     EAN8
+//      0x45     CODE39
+//      0x46     ITF
+//      0x47     CODABAR
+//      0x48     CODE93
+//      0x49     CODE128
+//
+// str 
+//      要打印的条码
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawBarcodeSpecifyPositionA(Pointer handle, int x, int y, int nBarcodeType, String str);
+    public int CaysnPage_DrawBarcodeSpecifyPositionW(Pointer handle, int x, int y, int nBarcodeType, WString str);
+
+//      打印QR码
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// nVersion 
+//      指定字符版本。取值范围：[0,16]。
+//      当 version 为 0 时，打印机根据字符串长度自动计算版本号。
+//
+// nECCLevel 
+//      指定纠错等级。取值范围：[1, 4]。
+//      各值定义如下： 
+//      ECC 纠错等级 
+//      1   L：7%，低纠错，数据多。 
+//      2   M：15%，中纠错 
+//      3   Q：优化纠错 
+//      4   H：30%，最高纠错，数据少。
+//
+// str 
+//      要打印的QR码
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawQRCodeSpecifyPositionA(Pointer handle, int x, int y, int nVersion, int nECCLevel, String str);
+    public int CaysnPage_DrawQRCodeSpecifyPositionW(Pointer handle, int x, int y, int nVersion, int nECCLevel, WString str);
+
+//      打印QR码
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// nQRCodeUnitWidth 
+//      QRCode 码码块宽度，取值范围：[1, 16]。
+//
+// nECCLevel 
+//      指定纠错等级。取值范围：[1, 4]。
+//      各值定义如下： 
+//      ECC 纠错等级 
+//      1   L：7%，低纠错，数据多。 
+//      2   M：15%，中纠错 
+//      3   Q：优化纠错 
+//      4   H：30%，最高纠错，数据少。
+//
+// str 
+//      要打印的QR码
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawQRCodeUseEpsonCmdSpecifyPositionA(Pointer handle, int x, int y, int nQRCodeUnitWidth, int nECCLevel, String str);
+    public int CaysnPage_DrawQRCodeUseEpsonCmdSpecifyPositionW(Pointer handle, int x, int y, int nQRCodeUnitWidth, int nECCLevel, WString str);
+
+//      打印图片
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// dstw 
+//      要打印的宽度
+//
+// dsth 
+//      要打印的高度
+//
+// pszFile 
+//      图片的路径
+//
+// binaryzation_method
+//      图片二值化算法。0表示抖动算法，1表示阀值算法。具体效果请测试查看。
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawImageSpecifyPositionFromFileA(Pointer handle, int x, int y, int dstw, int dsth, String pszFile, int binaryzation_method);
+    public int CaysnPage_DrawImageSpecifyPositionFromFileW(Pointer handle, int x, int y, int dstw, int dsth, WString pszFile, int binaryzation_method);
+
+//      打印图片（图片可由文件读取）
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// dstw 
+//      要打印的宽度
+//
+// dsth 
+//      要打印的高度
+//
+// data 
+//      图片数据。
+//
+// data_size 
+//      图片数据长度
+//
+// binaryzation_method
+//      图片二值化算法。0表示抖动算法，1表示阀值算法。具体效果请测试查看。
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawImageSpecifyPositionFromData(Pointer handle, int x, int y, int dstw, int dsth, byte[] data, int data_size, int binaryzation_method);
+    public class CaysnPage_DrawImageSpecifyPosition_Helper {
+        public static int CaysnPage_DrawImageSpecifyPositionFromBitmap(Pointer handle, int x, int y, int dstw, int dsth, Bitmap bitmap, int binaryzation_method) {
+            int result = 0;
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, os)) {
+                byte[] data = os.toByteArray();
+                result = INSTANCE.CaysnPage_DrawImageSpecifyPositionFromData(handle, x, y, dstw, dsth, data, data.length, binaryzation_method);
+            }
+            return result;
+        }
+    }
+
+//      打印图片像素数据
+//
+// handle 
+//      端口句柄，由OpenXXX返回
+//
+// x
+//      横向坐标
+//
+// y
+//      纵向坐标
+//
+// img_data 
+//      图片的像素数据。
+//
+// img_datalen
+//      图片的像素数据字节数。
+//
+// img_width 
+//      图片的像素宽度。
+//
+// img_height 
+//      图片的像素高度。
+//
+// img_stride 
+//      图片水平跨度。表示每行字节数。
+//
+// img_format
+//      图片像素数据格式，各值定义如下
+//      值    定义
+//      1     mono 
+//      2     monolsb 
+//      3     gray
+//      4     r.g.b in byte-ordered
+//      5     b.g.r in byte-ordered
+//      6     a.r.g.b in byte-ordered
+//      7     r.g.b.a in byte-ordered
+//      8     a.b.g.r in byte-ordered
+//      9     b.g.r.a in byte-ordered
+//
+// binaryzation_method
+//      图片二值化算法。0表示抖动算法，1表示阀值算法。具体效果请测试查看。
+//
+// return 
+//      返回值仅指示指令是否写入成功。返回true表示写入成功，返回false表示写入失败。
+    public int CaysnPage_DrawImageSpecifyPositionFromPixels(Pointer handle, int x, int y, byte[] img_data, int img_datalen, int img_width, int img_height, int img_stride, int img_format, int binaryzation_method);
+
+
+}
+

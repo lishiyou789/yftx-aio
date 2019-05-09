@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="420dp"
+    android:layout_height="300dp"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_select_dialog"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="常见症状"
+        android:textColor="@color/black6"
+        android:textSize="16sp" />
+
+    <ListView
+        android:id="@+id/lv_select_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/gray_light"
+        android:divider="@color/blackD"
+        android:dividerHeight="@dimen/dp_0.5" />
+
+    <TextView
+        android:id="@+id/tv_select_dialog_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/sure"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp" />
+
+</LinearLayout>

@@ -1,0 +1,299 @@
+<resources tools:ignore="MissingTranslation" xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">ks_measureLibrary</string>
+    <string-array name="appMeasureNames">
+        <item>心电</item>
+        <item>血氧</item>
+        <item>血压</item>
+        <item>体温</item>
+        <item>血液三项</item>
+        <item>尿常规</item>
+        <item>胎心监</item>
+    </string-array>
+    <string-array name="mm_list">
+        <item>5mm/s</item>
+        <item>6.25mm/s</item>
+        <item>10mm/s</item>
+        <item>12.5mm/s</item>
+        <item>25mm/s(默认)</item>
+        <item>50mm/s</item>
+    </string-array>
+    <string-array name="xx_list">
+        <item>x0.5</item>
+        <item>x1(默认)</item>
+        <item>x2</item>
+        <item>自动</item>
+    </string-array>
+    <string name="ecg_title_I">I导联</string>
+    <string name="ecg_title_II">II导联</string>
+    <string name="ecg_title_III">III导联</string>
+    <string name="ecg_title_AVR">AVR导联</string>
+    <string name="ecg_title_AVL">AVL导联</string>
+    <string name="ecg_title_AVF">AVF导联</string>
+    <string name="ecg_title_V1">V1导联</string>
+    <string name="ecg_title_V">V导联</string>
+    <string name="ecg_title_V2">V2导联</string>
+    <string name="ecg_title_V3">V3导联</string>
+    <string name="ecg_title_V4">V4导联</string>
+    <string name="ecg_title_V5">V5导联</string>
+    <string name="ecg_title_V6">V6导联</string>
+    <string name="ksm5">KSM5</string>
+    <!--ecg参数-->
+    <string name="ecg_hr">心率:</string>
+    <string name="qt_qtc_interval">QT/QTC间隔:</string>
+    <string name="pr_interval">PR间隔:</string>
+    <string name="p_qrs_t">P/QRS/T轴:</string>
+    <string name="qrs_interval">QRS间隔:</string>
+    <string name="rv5_sv1">RV5/SV1:</string>
+    <string name="rv5__sv1">RV5+SV1:</string>
+    <string name="ecg_diagnose_result">诊断结果:</string>
+    <string name="ecg_diagnose_result1">专家诊断结果:</string>
+    <string name="ecg_pvcs">PVCs</string>
+    <string name="ecg_st">ST</string>
+    <string name="ecg_diagnose">诊断</string>
+    <string name="ecg_diagnose_normal">正常心电图，窦性心律</string>
+    <string name="ecg_test">心电测试</string>
+    <string name="setting">设置</string>
+    <string name="ecg_setting">心电配置</string>
+    <string name="ecg_mm">波形速率:</string>
+    <string name="ecg_xx">波形增幅:</string>
+    <!--各参数报警限-->
+    <string name="hr_alarm_high">160</string>
+    <string name="hr_alarm_low">40</string>
+    <string name="default_value">-?-</string>
+    <!--血压按钮UI-->
+    <string name="nibp_btn_start">启动测量</string>
+    <string name="nibp_btn_stop">停止测量</string>
+    <string name="nibp_test">血压测试</string>
+    <!--resp参数-->
+    <string name="ecg_pls_checkforline">请插入导联线</string>
+    <string name="resp_rr">RespRr:</string>
+    <string name="ecg_trend_btn">趋势</string>
+    <string name="ecg_wave_btn">波形</string>
+    <string name="ecg_pls_keep_quiet_while_check">测量中，请保持安静</string>
+    <string name="ecg_check_timeout">测量超时，请重新测量！</string>
+    <string name="ecg_pls_checkfordevice">请启动服务</string>
+    <string name="ecg_check_ready">请点击启动测量</string>
+    <string name="ecg_pls_checkforline1">请插入导联线</string>
+    <string name="health_unit_bpm">bpm</string>
+    <!--nibp参数-->
+    <string name="nibp">血压:</string>
+    <string name="nibp_dia">舒张压:</string>
+    <string name="nibp_sys">收缩压:</string>
+    <string name="nibp_map">平均压:</string>
+    <string name="nibp_pr">脉&#160;&#160;&#160;&#160;率:</string>
+    <string name="nibp_cuff">袖带压</string>
+    <string name="V6">V6</string>
+    <string name="V5">V5</string>
+    <string name="V4">V4</string>
+    <string name="V3">V3</string>
+    <string name="V2">V2</string>
+    <string name="V1">V1</string>
+    <string name="avr">RA</string>
+    <string name="avl">LA</string>
+    <string name="avf"> LL</string>
+    <string name="heart_rate_high">心率过高！</string>
+    <string name="heart_rate_low">心率过低！</string>
+    <!--spo2参数-->
+    <string name="spo2_trend">血氧:</string>
+    <string name="spo2_pr">脉率:</string>
+    <string name="spo2_ware">"血氧波"</string>
+
+    <string name="spo2_dg_trend">血氧:</string>
+    <string name="spo2_dg_pr">脉率:</string>
+    <string name="measure">重新测量</string>
+    <!--spo2 UI 界面-->
+    <string name="spo2_waiting">等待测量...</string>
+    <string name="spo2_isChecking">正在测量...</string>
+    <string name="spo2_pls_put_probe">请插入血氧探头</string>
+    <string name="spo2_pls_put_finger">请将手指插入探头</string>
+    <string name="spo2_check_complited">恭喜,检测完成</string>
+    <string name="spo2_low_alarm">血氧低！</string>
+    <string name="spo2_test">血氧测试</string>
+    <string name="hr_reference_high">100</string>
+    <string name="hr_reference_low">60</string>
+    <string name="nibbp_result_0">恭喜,测量成功!</string>
+    <string name="nibbp_result_1">测量失败,袖带太松</string>
+    <string name="nibbp_result_2">测量失败,系统漏气</string>
+    <string name="nibbp_result_3">测量失败,空气压力错</string>
+    <string name="nibbp_result_4">测量失败,信号弱</string>
+    <string name="nibbp_result_5">测量失败,测量超范围</string>
+    <string name="nibbp_result_6">测量失败,信号干扰</string>
+    <string name="nibbp_result_7">测量失败,袖带压力过大</string>
+    <string name="nibbp_result_8">测量失败,信号饱和</string>
+    <string name="nibbp_result_9">测量失败,漏气检测失败</string>
+    <string name="nibbp_result_10">测量失败,系统故障</string>
+    <string name="nibbp_result_11">测量失败,袖带类型错误</string>
+    <string name="nibbp_result_12">测量失败,测量超时</string>
+    <!--IrTemp体温-->
+    <string name="irtemp_trend">体温:</string>
+    <string name="irtemp_dg_trend">体温:</string>
+    <string name="temp_title">测量中...</string>
+    <string name="temp_check_probe">请插入接触式探头</string>
+    <string name="wait_for_check">静待测量</string>
+    <string name="temp_pls_start">请启动测量</string>
+    <string name="temp_high">37.2</string>
+    <string name="temp_low">36.2</string>
+    <string name="t_point_len1">请注意小数点前最大</string>
+    <string name="t_point_len2">,小数点后保留</string>
+    <string name="t_point_len3">位</string>
+    <string name="t_include">,包含</string>
+    <string name="t_not_include">,不包含</string>
+    <string name="t_end0">.0</string>
+    <string name="t_valid_range">请输入有效范围(该数值的有效范围</string>
+    <string name="t_valid_range_1">请输入有效范围(该数值的有效范围大于等于</string>
+    <string name="t_valid_range_2">请输入有效范围(该数值的有效范围大于</string>
+    <string name="c_and">~</string>
+    <string name="c_r_bracket">)</string>
+    <string name="c_colon">:</string>
+    <string name="digit">位数</string>
+    <string name="number_overlength">整数长度不能超过</string>
+    <string name="retain">只保留</string>
+    <string name="decimal">位小数</string>
+    <string name="widget_input_unreasonable">输入的数据不合理</string>
+    <string name="widget_input_too_long">输入的数据太长</string>
+    <string name="blood_glu_trend">血糖:</string>
+    <string name="before_dinner">空腹血糖</string>
+    <string name="after_dinner">餐后血糖</string>
+    <string name="before_eat">空腹</string>
+    <string name="random">随机</string>
+    <string name="late_eat">餐后</string>
+
+    <!--尿酸-->
+    <string name="uric_acid_trend">尿酸:</string>
+    <!--总胆固醇-->
+    <string name="cholesterol_trend">总胆固醇:</string>
+    <string name="boy">男</string>
+    <string name="girl">女</string>
+    <!--urinert参数-->
+    <string name="urinert">尿常规:</string>
+    <string name="urinert_leu">白细胞(LEU):</string>
+    <string name="urinert_nit">亚硝酸盐(NIT):</string>
+    <string name="urinert_ubg">尿胆原(UBG):</string>
+    <string name="urinert_pro">尿蛋白(PRO):</string>
+    <string name="urinert_pro_tv">尿蛋白:</string>
+    <string name="urinert_ph">酸碱值(pH):</string>
+    <string name="urinert_bld">隐血(BLD):</string>
+    <string name="urinert_bld_no">隐血(BLD)</string>
+    <string name="urinert_sg">比重(SG):</string>
+    <string name="urinert_sg_tv">比重:</string>
+    <string name="urinert_bil">胆红素(BIL):</string>
+    <string name="urinert_ket">酮体(KET):</string>
+    <string name="urinert_glu">葡萄糖(GLU):</string>
+    <string name="urinert_alb">微量白蛋白(MA):</string>
+    <string name="urinert_asc">抗坏血酸(VC):</string>
+    <string name="urinert_cre">肌酐(Cr):</string>
+    <string name="urinert_ca">尿钙(Ca):</string>
+    <string name="urinert_test">尿常规测试</string>
+    <string name="health_unit_cm">cm</string>
+    <string name="health_unit_kg">kg</string>
+    <string name="health_unit_kgm">kg/㎡</string>
+    <string name="health_unit_mmhg">mmHg</string>
+    <string name="health_unit_pia">次/分钟</string>
+    <string name="health_unit_mol">mmol/L</string>
+    <string name="health_unit_umol">μmol/L</string>
+    <string name="health_unit_dl">mg/dL</string>
+    <string name="health_unit_gdl">g/dL</string>
+    <string name="health_unit_ul">U/L</string>
+    <string name="health_unit_gl">g/L</string>
+    <string name="health_uhnit_umol">umol/L</string>
+    <string name="urine_qianxue">尿隐血(BLD):</string>
+    <string name="x_district_temp">12导联心电检查报告</string>
+    <!--体检报告页面 start-->
+    <string name="x_report">健康体检报告</string>
+    <string name="x_check_ecg">查看心电图</string>
+    <string name="x_report_name">姓名：</string>
+    <string name="x_sex">性别：</string>
+    <string name="x_ecg_no_measure">心电还未测量</string>
+    <string name="x_report_name_temp">张三</string>
+    <string name="x_report_age_temp">26</string>
+    <string name="x_report_age">年龄：</string>
+    <string name="x_report_doctor">医生：</string>
+    <string name="x_report_doctor_temp">李四</string>
+    <string name="x_measure_time">体检时间：</string>
+    <string name="x_measure_time_temp">"2016-6-26 16:24:24"</string>
+    <string name="x_ur">尿常规</string>
+    <string name="x_project_name">项目名称</string>
+    <string name="measure_result">检查结果</string>
+    <string name="x_measure_unit">单位</string>
+    <string name="x_preference_value">参考值</string>
+    <string name="x_tip">提示</string>
+    <string name="leu">白细胞</string>
+    <string name="_1_02">"-?-"</string>
+    <string name="x_measure_unit_normal">-</string>
+    <string name="alb">白蛋白</string>
+    <string name="bil">胆红素</string>
+    <string name="asc">维生素C</string>
+    <string name="asc2">抗坏血酸</string>
+    <string name="ket">酮体</string>
+    <string name="cre">尿肌酐</string>
+    <string name="bld">潜血</string>
+    <string name="bld2">隐血</string>
+    <string name="ubg">尿胆原</string>
+    <string name="pro">蛋白质</string>
+    <string name="glu">葡萄糖</string>
+    <string name="sg">比重</string>
+    <string name="nit">亚硝酸盐</string>
+    <string name="ph">pH值</string>
+    <string name="ca">尿钙</string>
+    <string name="x_measure_unit_mg">mg/L</string>
+    <string name="x_measure_alb_reference">10-30</string>
+    <string name="x_measure_unit_mmol">mmol/L</string>
+    <string name="x_measure_cre_reference">-</string>
+    <string name="x_measure_sg_reference">1.015-1.025</string>
+    <string name="x_measure_ph_reference">5.0-8.5</string>
+    <string name="x_measure_ca_reference">1.0-10</string>
+    <string name="bo">血氧</string>
+    <string name="x_bo">血氧</string>
+    <string name="_97">"-?-"</string>
+    <string name="x_measure_unit_percent">%</string>
+    <string name="x_measure_bo_reference">94-100</string>
+    <string name="pr">脉率</string>
+    <string name="x_measure_unit_bpm">bpm</string>
+    <string name="x_measure_pr_reference">50-120</string>
+    <string name="x_bp">血压</string>
+    <string name="shrink_pressure">收缩压</string>
+    <string name="x_measure_unit_mmHg">mmHg</string>
+    <string name="x_measure_shrink_reference">90-140</string>
+    <string name="spread_pressure">舒张压</string>
+    <string name="_78">"-?-"</string>
+    <string name="x_measure_spread_reference">60-90</string>
+    <string name="average_pressure">平均压</string>
+    <string name="x_measure_average_pressure_reference">60-110</string>
+    <string name="x_temperature">体温</string>
+    <string name="_368">"-?-"</string>
+    <string name="x_measure_unit_celsius">℃</string>
+    <string name="x_measure_temperature_reference">36.2-37.2</string>
+    <string name="x_bs">血糖</string>
+    <string name="_5">"-?-"</string>
+    <string name="x_measure_bs_reference">2.77-7.0</string>
+    <string name="x_measure_ns_reference">0.2-0.42</string>
+    <string name="x_measure_td_reference">0.0-5.2</string>
+    <string name="x_conclusion_advice">结论及建议</string>
+    <string name="x_report_title">健康体检报告</string>
+    <string name="x_heart_pic_report">心电图报告</string>
+    <string name="glustyle_0">血糖（餐前）</string>
+    <string name="glustyle_1">血糖（随机）</string>
+    <string name="glustyle_2">血糖（餐后）</string>
+    <string name="x_btn_print">打印报告</string>
+    <string name="title_ecg">心率</string>
+    <string name="lipids_chol_title">总胆固醇</string>
+    <string name="lipids_trig_title">甘油三酯</string>
+    <string name="lipids_hdl_title">高密度脂蛋白</string>
+    <string name="lipids_ldl_title">低密度脂蛋白</string>
+    <string name="p_ca">尿钙（Ca）</string>
+    <string name="p_cre">肌酐（CRE）</string>
+    <string name="p_ma">微量白蛋白（MA）</string>
+    <string name="uri_cre_reference">10-300</string>
+    <string name="ecg__hr">心率：</string>
+    <string name="grid_title">25mm/s  10mm/mv  AC50</string>
+    <string name="unit_age">岁</string>
+    <string name="sex_unknown">未知</string>
+    <string name="sex_man">男</string>
+    <string name="sex_woman">女</string>
+    <string name="sex_unsay">未说明</string>
+    <string name="start_m1">开始测量</string>
+    <string name="cancel_measure">停止测量</string>
+    <string name="min20">20:00</string>
+    <string name="start3">宫缩压力归0</string>
+    <string name="start4">确定音量</string>
+</resources>

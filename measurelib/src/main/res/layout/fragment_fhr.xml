@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_start1"
+                android:text="@string/start_m1"
+                android:layout_width="100dp"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:id="@+id/tv_count_down"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:text="@string/min20"
+                android:gravity="center_vertical"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_fhr_value_mean"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="24sp"/>
+
+            <Button
+                android:id="@+id/btn_start3"
+                android:text="@string/start3"
+                android:layout_width="100dp"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:id="@+id/et_volume"
+                android:textSize="10sp"
+                android:hint="请输入1-7，对应的音量级别"
+                android:inputType="number"
+                android:layout_width="100dp"
+                android:layout_height="50dp"/>
+
+            <Button
+                android:id="@+id/btn_start4"
+                android:text="@string/start4"
+                android:layout_width="100dp"
+                android:layout_height="50dp"/>
+        </LinearLayout>
+
+        <com.konsung.view.FhrView
+            android:id="@+id/fhr_view"
+            android:layout_width="match_parent"
+            android:layout_height="178dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_start6"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/start_m1"/>
+
+            <TextView
+                android:id="@+id/tv_count_down1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:text="@string/min20"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_fhr_value_mean1"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginLeft="50dp"
+                android:textSize="24sp"/>
+
+        </LinearLayout>
+
+        <com.konsung.view.FhrView
+            android:id="@+id/fhr_view1"
+            android:layout_width="match_parent"
+            android:layout_height="178dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/black"/>
+    </LinearLayout>
+</ScrollView>

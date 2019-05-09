@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_2">
+
+    <LinearLayout
+        android:id="@+id/layout_wait_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_8">
+
+        <TextView
+            android:id="@+id/tv_task_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="待解读"
+            android:textColor="@color/black6"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="1小时前"
+            android:textColor="@color/black6"
+            android:textSize="@dimen/sp14" />
+
+        <TextView
+            android:id="@+id/tv_measure_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/dp_4"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:textColor="@color/black6"
+            android:textSize="@dimen/sp14" />
+
+
+        <TextView
+            android:id="@+id/tvService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/selector_service_button_bg"
+            android:clickable="true"
+            android:drawableStart="@mipmap/ic_service_icon"
+            android:drawablePadding="@dimen/dp_4"
+            android:paddingLeft="@dimen/dp_16"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingRight="@dimen/dp_16"
+            android:paddingBottom="@dimen/dp_8"
+            android:text="@string/service_him"
+            android:textColor="@drawable/selector_service_text_color"
+            android:textSize="@dimen/sp13" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>

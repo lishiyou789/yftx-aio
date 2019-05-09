@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_8">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rlTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_light"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_8">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="高血压服务包"
+                android:textColor="@color/black6"
+                android:textSize="@dimen/sp14" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/black6"
+                android:textSize="@dimen/sp13" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llServiceItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rlTitle"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="服务项目："
+                android:textColor="@color/black9"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:id="@+id/tvServiceItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black6"
+                android:textSize="@dimen/sp13" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llServiceItem"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测量结果："
+                android:textColor="@color/black9"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/tvResult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/no_measure_data"
+                android:textColor="@color/black9"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:layout_marginEnd="@dimen/dp_8"
+                android:gravity="right"
+                android:layout_weight="1"
+                android:id="@+id/tvEcg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="查看心电图"
+                android:textColor="@color/gr_nor"
+                android:textSize="@dimen/sp13" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSuggest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llResult"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="指导建议："
+                android:textColor="@color/black9"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:id="@+id/tvSuggest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black6"
+                android:textSize="@dimen/sp13" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llSuggest"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="指导医生："
+                android:textColor="@color/black9"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:id="@+id/tvDoctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black6"
+                android:textSize="@dimen/sp13" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

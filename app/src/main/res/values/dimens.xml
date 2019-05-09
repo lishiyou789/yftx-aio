@@ -1,0 +1,105 @@
+<resources>
+
+    <dimen name="sp12">12sp</dimen>
+    <dimen name="sp12.5">12.5sp</dimen>
+    <dimen name="sp13">13sp</dimen>
+    <dimen name="sp14">14sp</dimen>
+    <dimen name="sp15">15sp</dimen>
+    <dimen name="sp16">16sp</dimen>
+    <dimen name="sp17">17sp</dimen>
+    <dimen name="sp18">18sp</dimen>
+    <dimen name="sp19">19sp</dimen>
+    <dimen name="sp20">20sp</dimen>
+    <dimen name="sp21">21sp</dimen>
+    <dimen name="sp22">22sp</dimen>
+    <dimen name="sp23">23sp</dimen>
+    <dimen name="sp24">24sp</dimen>
+    <dimen name="sp25">25sp</dimen>
+    <dimen name="sp26">26sp</dimen>
+
+
+    <dimen name="dp_0.5">0.5dp</dimen>
+    <dimen name="dp_1">1dp</dimen>
+    <dimen name="dp_1.5">1.5dp</dimen>
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_3">3dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_5">5dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_18">18dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_22">22dp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_25">25dp</dimen>
+    <dimen name="dp_26">26dp</dimen>
+    <dimen name="dp_28">28dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
+    <dimen name="dp_32">32dp</dimen>
+    <dimen name="dp_38">38dp</dimen>
+    <dimen name="dp_42">42dp</dimen>
+    <dimen name="dp_44">44dp</dimen>
+    <dimen name="dp_48">48dp</dimen>
+    <dimen name="dp_52">52dp</dimen>
+    <dimen name="dp_56">56dp</dimen>
+    <dimen name="dp_100">100dp</dimen>
+
+
+    <dimen name="add_patient_title_width">110dp</dimen>
+    <dimen name="add_patient_ll_height">60dp</dimen>
+    <dimen name="space">20dp</dimen>
+    <dimen name="blogic_check_textsize">15dp</dimen>
+    <dimen name="row_margin">5dp</dimen>
+    <dimen name="ll_margin">10dp</dimen>
+    <dimen name="blogic_text_size">10sp</dimen>
+    <dimen name="blogic_20">20dp</dimen>
+    <dimen name="blogic_30">30dp</dimen>
+    <dimen name="blogic_15">15dp</dimen>
+    <dimen name="fhc_text_size">12sp</dimen>
+    <dimen name="one_line">28dp</dimen>
+    <dimen name="two_line">56dp</dimen>
+    <dimen name="three_line">84dp</dimen>
+    <dimen name="four_line">112dp</dimen>
+    <dimen name="five_line">140dp</dimen>
+    <dimen name="six_line">168dp</dimen>
+    <dimen name="thirteen_line">364dp</dimen>
+    <dimen name="eighteen_line">504dp</dimen>
+    <dimen name="form_size">12sp</dimen><!-- 表格字体大小-->
+    <dimen name="form_size_smaller">10sp</dimen><!-- 表格字体大小-->
+    <dimen name="first_row">300dp</dimen>
+    <dimen name="row_one">100dp</dimen>
+    <dimen name="urine_height">27dp</dimen>
+    <dimen name="hemocyte_desc_size">10sp</dimen>
+    <dimen name="hemocyte_wbc_witch">60dp</dimen>
+    <dimen name="hemocyte_wbc_size">18sp</dimen>
+    <dimen name="hemocyte_unit_width">40dp</dimen>
+    <dimen name="dp15" format="float" type="dimen">15dp</dimen>
+    <dimen name="px2" format="float" type="dimen">2px</dimen>
+    <dimen name="px3" format="float" type="dimen">3px</dimen>
+    <dimen name="px5" format="float" type="dimen">5px</dimen>
+    <dimen name="px8" format="float" type="dimen">8px</dimen>
+    <dimen name="px10" format="float" type="dimen">10px</dimen>
+    <dimen name="px14" format="float" type="dimen">14px</dimen>
+    <dimen name="px16" format="float" type="dimen">16px</dimen>
+    <dimen name="px18" format="float" type="dimen">18px</dimen>
+    <dimen name="px20" format="float" type="dimen">20px</dimen>
+    <dimen name="px22" format="float" type="dimen">22px</dimen>
+    <dimen name="px24" format="float" type="dimen">24px</dimen>
+    <dimen name="px30" format="float" type="dimen">30px</dimen>
+    <dimen name="px34" format="float" type="dimen">34px</dimen>
+    <dimen name="px40" format="float" type="dimen">40px</dimen>
+    <dimen name="px42" format="float" type="dimen">42px</dimen>
+    <dimen name="px60" format="float" type="dimen">60px</dimen>
+    <dimen name="px100" format="float" type="dimen">100px</dimen>
+    <dimen name="px130" format="float" type="dimen">130px</dimen>
+    <dimen name="px318" format="float" type="dimen">318px</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_35">35dp</dimen>
+    <dimen name="dp_50">50dp</dimen>
+    <dimen name="sp_15">15sp</dimen>
+    <dimen name="dp100">100dp</dimen>
+    <dimen name="sp_13">13sp</dimen>
+</resources>

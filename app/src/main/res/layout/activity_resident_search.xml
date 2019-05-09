@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#f6fbff"
+              android:orientation="vertical">
+
+    <include layout="@layout/layout_resident_search_title"/>
+
+    <include
+        layout="@layout/layout_resident_list_title"
+        android:visibility="gone"/>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/layout_recyclerview"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <com.health2world.aio.app.search.SearchDrawerView
+            android:id="@+id/drawerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"/>
+
+    </android.support.v4.widget.DrawerLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_last_page"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_margin="10dp"
+            android:background="@drawable/flat_button_style"
+            android:text="↑上一页"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp20"/>
+
+        <Button
+            android:id="@+id/btn_next_page"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="10dp"
+            android:background="@drawable/flat_button_style"
+            android:text="下一页↓"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp20"/>
+
+    </FrameLayout>
+
+</LinearLayout>

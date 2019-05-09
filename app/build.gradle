@@ -1,0 +1,133 @@
+apply plugin: 'com.android.application'
+apply plugin: 'bugly'
+//apply from: 'tinkerpatch.gradle'
+bugly {
+    appId = 'f3df4ff540'
+    appKey = '6587b3f3-4f96-4a87-8b7a-8708a6401986'
+}
+
+//static def debugTime() {
+//    return new Date().format("MMddHHmmss", TimeZone.getTimeZone("GMT+8"))
+//}
+//
+//static def releaseTime() {
+//    return new Date().format("MMddHHmm", TimeZone.getTimeZone("GMT+8"))
+//}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "com.health2world.aio"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 228
+        versionName '2.2.8'
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "GIT_VERSION", "\""+getVerCode()+"\""
+    }
+
+    signingConfigs {
+        config {
+            keyAlias 'yftx'
+            keyPassword 'yftx2017'
+            storeFile file('../health2world.jks')
+            storePassword 'yftx2017'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+    buildTypes {
+        //开发调试
+        debug {
+            //混淆规则配置文件
+            minifyEnabled false
+            multiDexEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+            manifestPlaceholders = [jpush_key: "a0b98efcbf6ba1604b47e9e5"]
+        }
+        //生产发布
+        release {
+            //启用代码混淆
+            minifyEnabled false
+            multiDexEnabled true
+            //混淆规则配置文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+            manifestPlaceholders = [jpush_key: "a0b98efcbf6ba1604b47e9e5"]
+        }
+    }
+
+    sourceSets {
+        main {
+            //jni库的调用会到资源文件夹下libs里面找so文件
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+//    //分包兼容低版本
+//    dexOptions {
+//        javaMaxHeapSize "4g"
+//        jumboMode = true
+//    }
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+    repositories {
+        flatDir {
+            dirs 'libs' // aar目录
+        }
+    }
+
+    // 自定义APK安装包名
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.each {
+                output ->
+//                    if (buildType.name.equals("debug")) {
+//                        output.outputFile = new File(output.outputFile.parent,
+//                                "pub_aio_test_V" + defaultConfig.versionName + "_" + getVerCode() + ".apk")
+//                    }
+                    if (buildType.name.equals("release")) {
+                        output.outputFile = new File(output.outputFile.parent,
+                                "pub_aio_pro_V" + defaultConfig.versionName + "_" + getVerCode() + ".apk")
+                    }
+            }
+    }
+    productFlavors {
+    }
+}
+
+static String getVerCode() {
+    def cmd = 'git rev-parse --short HEAD'
+    def gitVersion = cmd.execute().text.trim()
+    return gitVersion
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile project(':commonlib')
+    //    compile project(':MPChartLib')
+    compile project(':printerlibs')
+    compile 'top.zibin:Luban:1.1.8'
+    compile 'junit:junit:4.12'
+    compile(name: 'MPChartLib-release', ext: 'aar')
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.tencent.bugly:crashreport:2.1.9'
+    compile 'com.hyman:flowlayout-lib:1.1.2'
+    //photoview
+    compile 'com.github.chrisbanes.photoview:library:1.2.4'
+    //圆角图片
+    compile 'com.gcssloop.widget:rclayout:1.8.1'
+    //热修复
+    //    provided("com.tinkerpatch.tinker:tinker-android-anno:1.9.8")
+    //    compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.2.8")
+    //网络扫描工具 https://github.com/stealthcopter/AndroidNetworkTools
+    compile 'com.github.stealthcopter:AndroidNetworkTools:0.4.3'
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_service_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/dp_8"
+    android:paddingTop="@dimen/dp_8">
+
+    <TextView
+        android:id="@+id/tv_sort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:textSize="@dimen/sp13" />
+
+    <TextView
+        android:id="@+id/tv_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/black6"
+        android:textSize="@dimen/sp13" />
+
+    <TextView
+
+        android:id="@+id/tv_num"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:gravity="center_horizontal|end"
+        android:text="0/0次"
+        android:textColor="@color/black9"
+        android:textSize="@dimen/sp13" />
+
+    <TextView
+        android:id="@+id/tv_execute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_6"
+        android:background="@drawable/selector_service_button_bg"
+        android:paddingBottom="@dimen/dp_8"
+        android:paddingEnd="@dimen/dp_18"
+        android:paddingStart="@dimen/dp_18"
+        android:paddingTop="@dimen/dp_8"
+        android:text="执行"
+        android:textColor="@drawable/selector_service_text_color"
+        android:textSize="@dimen/sp12" />
+
+</LinearLayout>

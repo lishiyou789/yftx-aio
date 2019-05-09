@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3899fa</color>
+    <color name="colorPrimaryDark">#3899fa</color>
+    <color name="colorAccent">#3899fa</color>
+
+    <color name="black3">#333333</color>
+    <color name="black6">#666666</color>
+    <color name="black9">#999999</color>
+    <color name="blackC">#cccccc</color>
+    <color name="blackD">#ddd</color>
+    <color name="eee">#eee</color>
+    <color name="tab_resident_background">#B1DBFF</color>
+    <color name="blue_light">#b4dfff</color>
+    <color name="gray_light">#f5f5f5</color>
+    <color name="gray_dark">#e2e2e2</color>
+    <color name="transparent">#00000000</color>
+    <color name="half_transparent">#4f000000</color>
+
+    <color name="title_start_color">#3396fa</color>
+    <color name="title_center_color">#54a7fb</color>
+    <color name="title_end_color">#3597fa</color>
+    <color name="title_stroke_color">#4291e2</color>
+    <color name="task_select_color">#3899fa</color>
+    <color name="sing_text_color">#f8b448</color>
+    <color name="color_009aff">#009aff</color>
+    <color name="color_3c96fb">#3c96fb</color>
+    <color name="color_e5e5e5">#e5e5e5</color>
+    <color name="color_94ccfc">#ff94ccfc</color>
+    <color name="color_eee">#eee</color>
+    <color name="title_bg">#eff7ff</color>
+
+    <color name="anomaly_measure_color">#fc6767</color>
+    <color name="tag_bg_color">#2bd3dd</color>
+    <color name="color_eff7ff">#eff7ff</color>
+
+    <color name="resident_qr_code_dialog_bg">#33cccccc</color>
+    <color name="transparent_30">#26f5f5f5</color>
+</resources>

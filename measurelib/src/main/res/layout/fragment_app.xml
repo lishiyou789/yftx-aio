@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              tools:context="com.konsung.fragment.AppFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4">
+        <!--这里加载列表-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_app"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#4DB133"
+            android:divider="#ffffff"
+            android:dividerHeight="2px"
+            android:listSelector="@drawable/listview_select"></ListView>
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/app_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </FrameLayout>
+
+</LinearLayout>

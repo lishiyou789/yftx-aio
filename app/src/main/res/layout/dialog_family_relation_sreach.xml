@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="380dp"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_light"
+        android:gravity="center"
+        android:padding="@dimen/dp_12"
+        android:text="@string/select_relation_str"
+        android:textSize="@dimen/sp15" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_select_relation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center" />
+
+
+    <TextView
+        android:id="@+id/tvOk"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_gravity="center"
+        android:background="@color/gray_light"
+        android:gravity="center"
+        android:padding="@dimen/dp_12"
+        android:text="@string/sure"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/sp15" />
+</LinearLayout>

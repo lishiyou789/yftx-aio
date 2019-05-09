@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckBox xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cb_add_resident_taginfo"
+    android:layout_width="wrap_content"
+    android:layout_height="35dp"
+    android:layout_margin="@dimen/dp_10"
+    android:background="@drawable/select_add_resident_taginfo_bg"
+    android:button="@null"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_8"
+    android:text="高血压"
+    android:textColor="@drawable/shape_add_resident_taginfo_text"
+    android:textSize="@dimen/sp_13" />
+

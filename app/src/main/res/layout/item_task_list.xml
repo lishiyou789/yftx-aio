@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dp_8"
+    android:layout_marginRight="@dimen/dp_8"
+    android:layout_marginTop="@dimen/dp_8"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_6"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivResidentImage"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/user_portrait_circle" />
+
+            <TextView
+                android:id="@+id/tvSign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/ivResidentImage"
+                android:layout_alignRight="@id/ivResidentImage"
+                android:layout_marginRight="@dimen/dp_2"
+                android:background="@drawable/shape_sign_text_bg"
+                android:paddingLeft="@dimen/dp_2"
+                android:paddingRight="@dimen/dp_2"
+                android:text="@string/sign"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginRight="@dimen/dp_8"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/llLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvResidentName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="张三丰"
+                    android:textSize="@dimen/sp14" />
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:id="@+id/tagLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/dp_8"
+                    android:layout_toEndOf="@id/tvResidentName"
+                    android:gravity="center_vertical" />
+
+                <TextView
+                    android:id="@+id/tvTaskStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_8"
+                    android:layout_toEndOf="@id/tagLayout"
+                    android:text="（待开方）"
+                    android:textColor="@color/black9"
+                    android:textSize="@dimen/sp14" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvMeasureData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/llLayout"
+                android:layout_marginTop="@dimen/dp_6"
+                android:singleLine="true"
+                android:text="@string/no_measure_data"
+                android:textColor="@color/black9"
+                android:textSize="@dimen/sp13" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/selector_service_button_bg"
+            android:clickable="true"
+            android:drawableLeft="@mipmap/ic_service_icon"
+            android:drawablePadding="@dimen/dp_4"
+            android:paddingBottom="@dimen/dp_8"
+            android:paddingLeft="@dimen/dp_16"
+            android:paddingRight="@dimen/dp_16"
+            android:paddingTop="@dimen/dp_8"
+            android:text="@string/service_him"
+            android:textColor="@drawable/selector_service_text_color"
+            android:textSize="@dimen/sp13" />
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical"
+    android:paddingRight="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/urinert_leu"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="@string/urinert_leu"
+            android:textColor="@color/txt_color"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="—"
+            android:textColor="#333"
+            android:textSize="10sp" />
+
+        <TextView
+            android:textColor="@color/black3"
+            android:id="@+id/urinert_leu_tv"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/default_value"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/leu_icon"
+            android:layout_width="40dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:src="@drawable/alarm_high"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/urinert_nit"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="@string/urinert_nit"
+            android:textColor="@color/txt_color"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="—"
+            android:textColor="#333"
+            android:textSize="10sp" />
+
+        <TextView
+            android:textColor="@color/black3"
+            android:id="@+id/urinert_nit_tv"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/default_value"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/nit_icon"
+            android:layout_width="40dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:src="@drawable/alarm_high"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/urinert_ubg"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="@string/urinert_ubg"
+            android:textColor="@color/txt_color"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="—"
+            android:textColor="#333"
+            android:textSize="10sp" />
+
+        <TextView
+            android:textColor="@color/black3"
+            android:id="@+id/urinert_ubg_tv"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/default_value"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/ubg_icon"
+            android:layout_width="40dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:src="@drawable/alarm_high"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/urinert_pro"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="@string/urinert_pro"
+            android:textColor="@color/txt_color"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="—"
+            android:textColor="#333"
+            android:textSize="10sp" />
+
+        <TextView
+            android:textColor="@color/black3"
+            android:id="@+id/urinert_pro_tv"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/default_value"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/pro_icon"
+            android:layout_width="40dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:src="@drawable/alarm_high"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/urinert_ph"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="@string/urinert_ph"
+            android:textColor="@color/txt_color"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:text="7.9"
+                android:textColor="@color/black3"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="4.5"
+                android:textColor="@color/black3"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/urinert_ph_tv"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/default_value"
+            android:textColor="@color/black3"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/ph_icon"
+            android:layout_width="40dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:src="@drawable/alarm_high"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/urinert_sg"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="@string/urinert_sg"
+            android:textColor="@color/txt_color"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="1.025"
+                android:textColor="@color/black3"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="1.015"
+                android:textColor="@color/black3"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/urinert_sg_tv"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/default_value"
+            android:textColor="@color/black3"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/sg_icon"
+            android:layout_width="40dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:src="@drawable/alarm_high"
+            android:visibility="invisible" />
+    </LinearLayout>
+    <!--标配为11项尿常规，此项暂时隐藏-->
+    <LinearLayout
+        android:id="@+id/urine_ca_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/urinert_ca"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="@string/urinert_ca"
+            android:textColor="@color/txt_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="—"
+            android:textColor="#333"
+            android:textSize="10sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:textColor="@color/black3"
+            android:id="@+id/urinert_ca_tv"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/default_value"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/health_unit_dl"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ca_icon"
+            android:layout_width="40dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:src="@drawable/alarm_high"
+            android:visibility="invisible" />
+    </LinearLayout>
+</LinearLayout>
